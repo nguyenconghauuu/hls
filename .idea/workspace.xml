@@ -4,40 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61f22db6-1e00-4268-8f54-defcede236b6" name="Default Changelist" comment="new readme.md">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/accounts/change_pass.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/accounts/change_pass.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/accounts/forgot_password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/accounts/forgot_password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/accounts/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/accounts/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/accounts/password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/accounts/password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/accounts/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/accounts/profile.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/accounts/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/accounts/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/categorypost/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categorypost/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/categorypost/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categorypost/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/categorypost/update.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categorypost/update.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/home/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/inc_header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/inc_header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/inc_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/inc_sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/questions/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/questions/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/questions/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/questions/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/ket-qua-thi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/ket-qua-thi.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/authen/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/authen/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/component/_inc_header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/component/_inc_header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/detail-post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/detail-post.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/exams/kq.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/exams/kq.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/exams/list_kq.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/exams/list_kq.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/exams/list_kq_item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/exams/list_kq_item.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/exams/quiz.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/exams/quiz.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/exams/result.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/exams/result.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/exams/start_baithi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/exams/start_baithi.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/list_quiz.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/list_quiz.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/search.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-    </list>
+    <list default="true" id="61f22db6-1e00-4268-8f54-defcede236b6" name="Default Changelist" comment="new readme.md" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -226,7 +193,7 @@
       <workItem from="1671424043182" duration="20713000" />
       <workItem from="1671494462878" duration="5323000" />
       <workItem from="1671510315502" duration="610000" />
-      <workItem from="1671511072651" duration="6915000" />
+      <workItem from="1671511072651" duration="7387000" />
     </task>
     <task id="LOCAL-00001" summary="new readme.md">
       <created>1666015387205</created>
@@ -242,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671515625348</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="new readme.md">
+      <created>1671546036115</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671546036115</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

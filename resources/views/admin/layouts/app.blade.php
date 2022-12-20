@@ -18,7 +18,6 @@
         <body class="hold-transition skin-blue fixed sidebar-mini">
         <!-- Site wrapper -->
         <div class="wrapper">
-
             @include('admin.layouts.inc_header')
             <!-- ======================HEADER========================= -->
             @include('admin.layouts.inc_sidebar')
