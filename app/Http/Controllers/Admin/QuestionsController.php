@@ -20,21 +20,16 @@ class QuestionsController extends Controller
         // gọi hàm đệ quy sắp xếp lai danh mục theo thứ tự
         $cateModel->recursive($categoryPost, $parent = 0 , $level = 1, $sortCategoryPost);
         if($sortCategoryPost === null) $sortCategoryPost = [];
-        $posts = Posts::all();
+
         $questions = DB::table('questions')
-            ->leftJoin('posts', 'posts.id', '=', 'questions.qs_post_id')
             ->leftJoin('categoryposts', 'categoryposts.id', '=', 'questions.ps_category_post_id')
-            ->select('questions.*','cpo_name','po_title');
+            ->select('questions.*','cpo_name');
         if($request->categorypost)
         {
             $questions = $questions->where('ps_category_post_id',$request->categorypost);
             $finter['ps_category_post_id'] = $request->categorypost;
         }
-        if($request->post)
-        {
-            $questions = $questions->where('qs_post_id',$request->post);
-            $finter['qs_post_id'] = $request->post;
-        }
+
         if($request->title)
         {
             $questions->where("qs_name","like","%".$request->title."%");
@@ -45,8 +40,7 @@ class QuestionsController extends Controller
         $viewData = [
             'questions'        => $questions,
             'finter'           => $finter,
-            'sortCategoryPost' => $sortCategoryPost ?? [],
-            'posts'            => $posts
+            'sortCategoryPost' => $sortCategoryPost ?? []
         ];
         return view('admin.questions.index',$viewData);
     }
@@ -68,7 +62,6 @@ class QuestionsController extends Controller
     public function create(QuestionsRequest $request)
     {
         $data = $request->all();
-        $data['qs_post_id'] = (int)$request->qs_post_id;
 
         $data['created_at'] = $data['updated_at'] = date(now());
         unset($data['_token']);
@@ -98,8 +91,7 @@ class QuestionsController extends Controller
         // gọi hàm đệ quy sắp xếp lai danh mục theo thứ tự
         $cateModel->recursive($categoryPost, $parent = 0 , $level = 1, $sortCategoryPost);
 
-        $posts = DB::table('posts')->get();
-        return view('admin.questions.edit',compact('question','sortCategoryPost','posts'));
+        return view('admin.questions.edit',compact('question','sortCategoryPost'));
     }
 
     public function update(Request $request , $id)
@@ -107,7 +99,7 @@ class QuestionsController extends Controller
         $data = $request->all();
         unset($data['_token']);
         $data['created_at'] = $data['updated_at'] = date(now());
-        $data['qs_post_id'] = (int)$request->qs_post_id;
+
         if ($request->hasFile('qs_thunbar'))
         {
             $info = uploadImg('qs_thunbar');
@@ -117,7 +109,7 @@ class QuestionsController extends Controller
                 move_uploaded_file($_FILES['qs_thunbar']['tmp_name'], public_path() . '/uploads/questions/' . $info['name']);
             }
         }
-//        dd($data);
+
         $id = DB::table('questions')->where('id',$id)->update($data);
         if($id > 0)
         {
@@ -135,15 +127,5 @@ class QuestionsController extends Controller
             return redirect()->route('admin.questions.index')->with('success','Xoá thành công !!! ');
         }
         return redirect()->route('admin.questions.index')->with('danger','Xoá thất bại !!! ');
-    }
-    // load ajax show
-    public function loadPost(Request $request)
-    {
-
-        $cate = (int)$request->cate;
-        $posts = DB::table('posts')
-            ->select('id','po_title')
-            ->where('po_category_post_id',$cate)->get();
-        return response()->json(['posts' => $posts]);
     }
 }

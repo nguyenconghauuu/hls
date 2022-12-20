@@ -100,16 +100,17 @@ class ChoicesController extends Controller
     {
         $idExams = $request->id;
         $infoEx = Exams::findOrFail($idExams);
-        dump($infoEx);
+
         $listExams  = Questions::with([
             'exams' => function($q)
             {
-                $q->select('id','eu_exam_id','eu_question_id');
+                $q->select('eu_exam_id','eu_question_id');
             }
         ])->whereHas('exams',function($q) use ($idExams)
         {
             $q->where('eu_exam_id',$idExams)->get();
         })->get();
+
         return view('admin.choices.list-exams',compact('listExams','infoEx'));
 
     }

@@ -29,48 +29,6 @@ Route::group(['prefix' => '/admins','middleware' => 'admins'], function() {
         Route::get('/{id}/hot',['as' => 'admin.categorypost.hot','uses' => 'Admin\CategorisPostController@hot']);
     });
 
-
-    // xử lý bài viết
-    Route::group(['prefix' => '/posts'], function () {
-        Route::get('/', ['as' => 'admin.posts.index','uses' => 'Admin\PostsController@index']);
-        Route::get('/add', ['as' => 'admin.posts.add','uses' => 'Admin\PostsController@getAdd']);
-        Route::post('/add', ['as' => 'admin.posts.create','uses' => 'Admin\PostsController@createCategory']);
-        Route::get('/{id}/edit',['as' => 'admin.posts.edit','uses' => 'Admin\PostsController@getEdit']);
-        Route::post('/{id}/edit',['uses' => 'Admin\PostsController@postEdit']);
-        Route::get('/{id}/delete',['as' => 'admin.posts.delete','uses' => 'Admin\PostsController@delete']);
-        Route::get('/{id}/hot',['as' => 'admin.posts.hot','uses' => 'Admin\PostsController@hot']);
-        Route::get('/{id}/active',['as' => 'admin.posts.active','uses' => 'Admin\PostsController@active']);
-
-        // ajax
-        Route::post('/{id}/view',['as' => 'admin.posts.view','uses' => 'Admin\PostsController@view']);
-    });
-
-    /**
-     * bai viet linh tinh
-     */
-    Route::group(['prefix' => '/post-about'], function () {
-        Route::get('/', ['as' => 'admin.post.about.index','uses' => 'Admin\PostAboutController@index']);
-        Route::get('/add', ['as' => 'admin.post.about.add','uses' => 'Admin\PostAboutController@getAdd']);
-        Route::post('/add', ['as' => 'admin.post.about.create','uses' => 'Admin\PostAboutController@createCategory']);
-        Route::get('/{id}/edit',['as' => 'admin.post.about.edit','uses' => 'Admin\PostAboutController@getEdit']);
-        Route::post('/{id}/edit',['uses' => 'Admin\PostAboutController@postEdit']);
-        Route::get('/{id}/delete',['as' => 'admin.post.about.delete','uses' => 'Admin\PostAboutController@delete']);
-        Route::get('/{id}/hot',['as' => 'admin.post.about.hot','uses' => 'Admin\PostAboutController@hot']);
-        Route::get('/{id}/active',['as' => 'admin.post.about.active','uses' => 'Admin\PostAboutController@active']);
-
-        // ajax
-//        Route::post('/{id}/view',['as' => 'admin.posts.view','uses' => 'Admin\PostsController@view']);
-    });
-
-    /**
-     *  Cau hinh website 
-     */
-    Route::group(['prefix' => 'settings'], function() {
-        Route::get('/', ['as' => 'admin.settings.index','uses' => 'Admin\SettingsController@getInfo']);
-        Route::post('/', ['as' => 'admin.settings.saveinfo','uses' => 'Admin\SettingsController@saveInfo']);
-    });
-
-
     // quan ly thành viên 
     Route::group(['prefix' => 'users'], function() {
         Route::get('/', ['as' => 'admin.users.index','uses' => 'Admin\UsersController@index']);
@@ -97,11 +55,7 @@ Route::group(['prefix' => '/admins','middleware' => 'admins'], function() {
         Route::get('/{id}/list-exams','Admin\ChoicesController@listExams')->name('list.exams');
 
     });
-    // quan ly comment
-    Route::group(['prefix' => 'comments'],function (){
-        Route::get('/','Admin\CommentsController@index')->name('comments.index');
-        Route::get('/{id}/delete','Admin\CommentsController@delete')->name('admin.comments.delete');
-    });
+
     /**
      * profiles admins  
      */
@@ -109,8 +63,6 @@ Route::group(['prefix' => '/admins','middleware' => 'admins'], function() {
         Route::get('/', ['as' => 'admin.profiles.index','uses' => 'Admin\ProfilesAdminController@index']);
         Route::post('/',['uses' => 'Admin\ProfilesAdminController@saveProfile']);
     });
-
-
 
     // cau hoi
     Route::group(['prefix' => 'questions'], function (){

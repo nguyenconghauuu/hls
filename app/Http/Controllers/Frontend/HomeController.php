@@ -39,7 +39,7 @@ class HomeController extends FrontendController
 
     public function searchTypehead(Request $request)
     {
-        $posts = DB::table('categoryposts')->select('id','cpo_name','cpo_slug');
+        $posts = DB::table('categoryposts')->select('id','cpo_name','cpo_slug','cpo_content');
         $query = $request->input('k');
         if($query)
         {

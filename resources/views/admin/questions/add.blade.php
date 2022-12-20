@@ -38,7 +38,7 @@
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"> Danh mục </label>
                                 <div class="col-sm-9">
-                                    <select class="form-control" name="ps_category_post_id" id="category_post_id">
+                                    <select class="form-control" name="ps_category_post_id" >
                                         <option value=""> - Chọn danh mục  - </option>
                                         @if(count($sortCategoryPost) > 0)
                                             @foreach($sortCategoryPost as $item)
@@ -51,15 +51,6 @@
                                     @endif
                                 </div>
 
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"> Bài học </label>
-                                <div class="col-sm-10">
-                                    <select class="form-control" name="qs_post_id" id="post_id">
-                                        <option value=""> - Danh sách bài học   - </option>
-                                    </select>
-                                </div>
                             </div>
 
                             <div class="form-group">

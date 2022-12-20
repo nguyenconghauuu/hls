@@ -32,12 +32,7 @@
                             @endforeach
                         @endif
                     </select>
-                    <select name="post" id="post_id" class="form-control" style="width:39%;margin-left: 10px;">
-                        <option value="">--  Bài viết  --</option>
-                        @foreach($posts as $post)
-                            <option value="{{ $post->id }}" {{ Request::get('post') == $post->id ? "selected = 'selected' ": "" }}>{{ $post->po_title }}</option>
-                        @endforeach
-                    </select>
+
                     <div class="input-group date" data-provide="datepicker">
 
                         <div class="input-group-addon">
@@ -89,11 +84,6 @@
                                 </td>
                                 <td>
                                     <span class="label label-success"> Chương :  {{ $item->cpo_name }} </span><br>
-                                    <a href="javascript:void(0)" data-toggle="tooltip" title="{{ $item->po_title }}"> Xem bài viết </a><br>
-                                    @if( ! $item->qs_post_id )
-                                        <span class="label label-info"> Câu hỏi ôn tập chương </span>
-                                    @endif
-
                                 </td>
                                 <td>
                                     {!! renderBtnEdit(route('admin.questions.edit',$item->id)) !!}

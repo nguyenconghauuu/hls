@@ -22,7 +22,6 @@
                     <input type="text" class="form-control"  placeholder=" Tên bài  viết tìm kiếm " autocomplete="off" name="title"  value="{{ Request::get('title') }}" style="width: 80%;margin:5px 0"/>
                     <div class="" style="margin-top: 5px;display: inline-block">
                         <button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-search"></i> Tìm kiếm </button>
-                        <a href="{{ route('admin.posts.index') }}" class="btn btn-xs btn-success"><i class="fa fa-refresh"></i> Làm mới </a>
                     </div>
                 </form>
             </div>

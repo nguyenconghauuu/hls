@@ -116,17 +116,4 @@ class CategorisPostController extends Controller
         }
         return redirect()->route('admin.categorypost.index')->with('danger','Xoá thất bại !!! ');
     }
-
-    /**
-     * @param $id
-     * @return \Illuminate\Http\RedirectResponse
-     * thay đổi trạng thái danh mục
-     */
-    public function hot($id)
-    {
-        $categorys = CategoryPosts::findOrFail($id);
-        $categorys->cpo_hot = ! $categorys->cpo_hot;
-        $categorys->save();
-        return redirect()->route('admin.categorypost.index')->with('success','Cập nhật thành công !!! ');
-    }
 }

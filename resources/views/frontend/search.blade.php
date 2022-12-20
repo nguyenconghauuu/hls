@@ -181,10 +181,11 @@
         <div class="container-main" style="height: auto;margin-top: 20px;">
             <h2 style="margin: 0;padding: 10px">Kết quả tìm kiếm {{ Request::get('k') }}</h2>
         </div>
+
         @foreach($posts as $item)
             <div class="container-main">
                 <h2>
-                    <a href="/bai-viet/{{ $item->po_category_post_id }}/{{ $item->po_slug }}/{{ $item->id }}">{{ $item->po_title }}</a>
+                    <a href="/danh-muc/{{ $item->cpo_slug }}/{{ $item->id }}">{{ $item->cpo_name }}</a>
                 </h2>
                 <div class="main-text">
                     <div style="    -webkit-line-clamp: 3;
@@ -196,7 +197,7 @@
     margin-bottom: 20px;
     overflow: hidden;
     text-overflow: ellipsis;">
-                        {!! $item->po_description !!}
+                        {!! $item->cpo_content !!}
                     </div>
                 </div>
             </div>

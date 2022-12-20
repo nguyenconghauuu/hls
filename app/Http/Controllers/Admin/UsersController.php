@@ -175,7 +175,9 @@ class UsersController extends Controller
         $diem = DB::table('exam_result')
             ->leftJoin('users','users.id','=','exam_result.er_user_id')
             ->leftJoin('exams','exams.id','=','exam_result.er_exam_id')
+            ->leftJoin('categoryposts','categoryposts.id','=','exam_result.category_id')
             ->where('er_user_id',$id)->get();
+
         return view('admin.users.ket-qua-thi',compact('diem'));
     }
 }

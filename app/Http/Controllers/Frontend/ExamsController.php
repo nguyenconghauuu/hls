@@ -214,7 +214,7 @@ class ExamsController extends FrontendController
     public function getListQuiz()
     {
         $cateModel    = new CategoryPosts();
-        $categorys    = \Illuminate\Support\Facades\DB::table('categoryposts')->where('cpo_hot', 1)->get();
+        $categorys    = \Illuminate\Support\Facades\DB::table('categoryposts')->get();
         $sortCategory = array();
         // gọi hàm đệ quy sắp xếp lai danh mục theo thứ tự
         $cateModel->recursive($categorys, $parent = 0, $level = 1, $sortCategory);
@@ -232,12 +232,10 @@ class ExamsController extends FrontendController
 
         $categoryChildrens = CategoryPosts::where('cpo_parent_id', $categoryParent->id)->get();
 
-        $postsCategory = \DB::table('posts')->where('po_category_post_id', $categoryID)->orderBy('po_sort', 'ASC')->get();
         $viewData      = [
             'categoryParent'    => $categoryParent,
             'categoy'           => $categoy,
             'CategoryChildrens' => $categoryChildrens,
-            'postsCategory'     => $postsCategory,
             'id_parent'         => $categoryParent->id
         ];
         return view('frontend.list_quiz', $viewData);

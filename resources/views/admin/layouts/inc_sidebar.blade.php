@@ -14,7 +14,7 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
             <li class="<?= Request::segment(2)  == 'home' ? 'active' : '' ?>">
-                <a href="/"><i class="fa fa-dashboard"></i> <span> Trang Chủ </span></a>
+                <a href="/admins"><i class="fa fa-dashboard"></i> <span> Trang Chủ </span></a>
             </li>
             <li class="header"> Bài viết </li>
             <li class="<?= Request::segment(2)  == 'category-post' ? 'active' : '' ?>">

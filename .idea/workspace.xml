@@ -5,92 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="61f22db6-1e00-4268-8f54-defcede236b6" name="Default Changelist" comment="new readme.md">
-      <change afterPath="$PROJECT_DIR$/resources/views/accounts/change_pass.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/accounts/forgot_password.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/accounts/password.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/accounts/profile.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/email/change_pass.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/component/_inc_header.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/exams/kq.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/exams/list_kq.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/exams/list_kq_item.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/exams/quiz.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/exams/result2.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/exams/start_baithi2.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/list_quiz.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/frontend/search.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/footer.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/laravel_webtracnghiem.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/laravel_webtracnghiem.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/CategoryPosts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/CategoryPosts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/CategoryProducts.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Comments.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Emails.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exams_users.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exams_users.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategorisPostController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/CategorisPostController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/CommentsController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/GmailAdminController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ChoicesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ChoicesController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/QuestionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/QuestionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SettingsController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/SlidesController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CategorysController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/CategorysController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/UsersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ExamsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/ExamsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/FrontendController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/FrontendController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Frontend/PostsDetailController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Frontend/PostsDetailController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/CheckLoginAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/CheckLoginAdmin.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/PostAbout.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Posts.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2018_03_07_000458_add_filed_sort_posts_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2018_03_27_113139_create_post_about_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2018_04_20_200641_create_test_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/doantotnghiep_laravel_webtracnghiem.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/accounts/dang_ky.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/accounts/dang_nhap.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/accounts/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/accounts/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/accounts/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/accounts/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/categorypost/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categorypost/add.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/categorypost/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categorypost/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/categorypost/update.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categorypost/update.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/choices/add-exams.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/choices/add.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/choices/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/choices/list-exams.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/comments/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/gmails/add.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/gmails/edit.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/gmails/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/gmails/sendemail.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/home/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/home/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/inc_sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/inc_sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/notification/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/notification/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/post_about/add.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/post_about/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/post_about/update.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/add.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/posts/update.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/settings/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/slides/add.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/slides/index.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/slides/update.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/update.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/update.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/authen/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/authen/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/category.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/detail-post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/detail-post.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/exams/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/exams/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/exams/result.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/exams/result.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/exams/start_baithi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/exams/start_baithi.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/thongtin.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/thongtin.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/questions/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/questions/add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/questions/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/questions/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/ket-qua-thi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/ket-qua-thi.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/component/_inc_header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/component/_inc_header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/search.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -223,7 +151,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "true",
-    "last_opened_file_path": "/Users/trungphuna/Documents/work/web/khodoan/2022/homelearningsoftware",
+    "last_opened_file_path": "/Users/trungphuna/Documents/work/web/khodoan/2022/demo/resources/views/admin",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -234,6 +162,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/admin" />
       <recent name="$PROJECT_DIR$/resources/views/frontend" />
       <recent name="$PROJECT_DIR$/resources/views/accounts" />
     </key>
@@ -282,7 +211,9 @@
       <workItem from="1671330030677" duration="9882000" />
       <workItem from="1671377527789" duration="3843000" />
       <workItem from="1671424043182" duration="20713000" />
-      <workItem from="1671494462878" duration="4724000" />
+      <workItem from="1671494462878" duration="5323000" />
+      <workItem from="1671510315502" duration="610000" />
+      <workItem from="1671511072651" duration="2480000" />
     </task>
     <task id="LOCAL-00001" summary="new readme.md">
       <created>1666015387205</created>

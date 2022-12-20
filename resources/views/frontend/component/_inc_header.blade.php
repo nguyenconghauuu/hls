@@ -7,7 +7,7 @@
 <div class="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="header-logo">
-            <a href=""><img style="width:120px" src="./hls.jpg" alt=""></a>
+            <a href=""><img style="width:120px" src="{{ asset('logo.jpg') }}" alt=""></a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
