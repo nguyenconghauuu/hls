@@ -67,7 +67,7 @@
 
                 </div>
                 <div class="footer" style="padding: 20px ;border: 1px solid #dedede;background-color: white;position: fixed;bottom: 0;width: 79.6%">
-                    <p style="color: #333"> Khoá Luận Tốt Nghiệp <a href=""> Nguyễn Thị Thuý </a></p>
+                    <p style="color: #333"> Thực Hành Dự Án <a href="">  </a></p>
                 </div>
             </div>
             <div class="clearfix"></div>

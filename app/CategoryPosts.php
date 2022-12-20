@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class CategoryPosts extends Model
 {
     protected $table = 'categoryposts';
-    protected $fillable = ['cpo_name', 'updated_at','cpo_hot','cpo_sort','id','cpo_type','cpo_parent_id','created_at'];
+    protected $fillable = ['cpo_name', 'updated_at','id','cpo_type','cpo_parent_id','created_at'];
     public    $timestamps = true;
 
     public static function recursive($listPostCategory ,$parents = 0 ,$level = 1 ,&$CategoryPostListSort)

@@ -1,306 +1,274 @@
-@include('frontend.layouts.inc_header')
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- JavaScript Bundle with Popper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+            crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fragment+Mono&display=swap" rel="stylesheet">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
 <style>
-    .box-sm{ background: white}
-    .panel-default { border-radius: 0;border-color: white;border: 0 !important;}
-    .panel-heading { background-color: #fff !important;border: none}
-    .title-nav {
-        color: #000;
-        text-transform: uppercase;
-        font-size: 13px;
-        font-weight: 500;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Fragment Mono', monospace;
     }
-    .panel-body{ border: 0 !important;padding-top: 0!important;}
-    .panel-group .panel { border: 0 !important;border-radius: 0!important;}
-    .title_post_sub
-    {
-        color: #222;
-        display: block;
-        padding-bottom: 1px;
-        padding-top: 1px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+
+    .header {
+        width: 100%;
+        height: auto;
+        display: flex;
     }
-    .title-post a { color: #666; display: block; padding-bottom: 1px;  padding-top: 1px;  white-space: nowrap;  overflow: hidden; text-overflow: ellipsis;}
-    .title-post a:hover {  color: #00a888 !important;}
-    .title-new { text-transform: uppercase;font-size: 20px; text-align: center ;  border-bottom: 1px solid #dfdfdf;padding-bottom: 10px;}
-    .title-footer { font-size: 20px;text-transform: uppercase;border-bottom: 2px solid #72c02c;padding-bottom: 15px;width: 90%}
-    .fa-book
-    {
-        line-height: 50px;
-        font-size: 24px;
-        float: left;
-        color: #fff;
-        width: 50px;
+
+    .navbar {
+        width: 100%;
+    }
+
+    .collapse {
+        margin-left: 0px;
+    }
+
+
+    /*  */
+    .container {
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+        height: auto;
+        display: flex;
+        padding: 0px 20px 0px 20px;
+        padding-bottom: 50px;
+    }
+
+    .nav-bar {
+        width: 20%;
+        padding-left: 10px;
+        padding-right: 30px;
+        height: auto;
+
+    }
+
+    .nav-bar-header {
+        width: 100%;
         height: 50px;
+
+    }
+
+    .nav-bar-main {
+        width: 100%;
+        height: 100px;
+        background-color: rgb(155, 155, 133);
+        display: none;
+    }
+
+    .nav-bar-main.active {
+        display: block;
+    }
+
+    .content-main {
+        width: 80%;
+        height: auto;
+    }
+
+    .container-main {
+        width: 100%;
+        min-height: 250px;
+        margin-bottom: 20px;
+        background-color: #f2f2f2;
+        padding-top: 1px;
+    }
+
+    .container-main h2 {
+        margin: 2.5% 0px 0px 2.5%;
+    }
+
+    .main-text {
+        width: 95%;
+        min-height: 150px;
+        background-color: white;
+        margin: 0px 0px 0px 2.5%;
+    }
+
+    .content-button {
+
+        width: 10%;
+        height: 500px;
+    }
+
+    .content-btn-click {
+        width: 100%;
+        height: 250px;
+        background-color: #f2f2f2;
+        margin-bottom: 20px;
+    }
+
+    .content-btn-click {
+        padding: 100px 0px 0px 20px;
+
+
+    }
+
+    .contianer2 {
+        width: 100%;
+        display: flex;
+    }
+
+    .contianer2 a {
         text-align: center;
-        margin-right: 15px;
-        display: inline-block;
-        border-radius: 50%;
-        background-color: #333333a3;
+        text-decoration: none;
     }
-    .fa-book:hover
-    {
-        background-color: #4285F4;
-        cursor: pointer;
+
+    .item {
+        padding-top: 30px;
+        border-radius: 20px;
+        margin: 5px;
+
     }
-    .fa-book:before {
-        content: "\f02d";
-        font-size: 100%;
-        font-family: FontAwesome;
-        font-style: normal;
-        font-weight: normal;
-        text-decoration: inherit;
+
+    .footer {
+        width: 100%;
+        height: 300px;
+
     }
-    /*.fa-book:before {*/
-        /*content: "\f02d";*/
-    /*}*/
-    .carousel-control,.carousel-control:hover{
-        opacity: 0;
+
+    .icon-footer {
+        width: 12%;
+        display: flex;
+        flex-direction: row;
     }
 </style>
-    <section style="background-color: #f1f1f16e">
-        <div class="container">
-            <div class="row clearfix">
-                <div class="col-sm-12 box-sm" style="border: 1px solid #e7e7e7; margin-top: 20px;">
-                    <div class="box-sm" style="">
-                        <div class="box-sm-12">
-                            
-                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                <h4 style="padding-left: 15px;color: #4285f4;font-weight: bold;font-size: 14px;text-transform: uppercase"> Chương trình học ISTQB CƠ BẢN </h4>
-                                @foreach($categorys as $key => $cate)
-                                    {{--@if($cate->level == 2)--}}
-                                    <div class="panel panel-default">
 
-                                        <div class="panel-heading" role="tab" id="headingOne{{ $key }}">
-                                            <h4 class="panel-title">
-                                                <a role="button" style="color: #4285f4;font-weight: bold" data-toggle="collapse" data-parent="#accordion" href="#collapseOne{{ $key }}" class="title-nav" aria-expanded="true" aria-controls="collapseOne">
-                                                    {{ $cate->cpo_name }}
-                                                </a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseOne{{$key}}" class="panel-collapse collapse {!!  $key == 0 ? 'in' : '' !!}" role="tabpanel" aria-labelledby="headingOne{{ $key }}">
-                                            <div class="panel-body">
-                                                <?php
-                                                    $posts = DB::table('posts')
-                                                        ->leftJoin('categoryposts', 'categoryposts.id', '=', 'posts.po_category_post_id')
-                                                        ->select('posts.id','posts.po_title','posts.po_slug','posts.po_category_post_id','categoryposts.cpo_slug')
-                                                        ->where('po_category_post_id',$cate->id)->orderBy('po_sort','ASC')->get();
-                                                ?>
-                                                @if($posts->count() > 0 )
-                                                    <ul style="list-style: none;padding-left: 17px;">
-                                                        @foreach($posts as $post)
-                                                            <li><a class="title_post_sub" href="/bai-viet/{{ $cate->cpo_parent_id }}/{{ $post->po_slug }}/{{ $post->id }}" title="{{ $post->po_title }}" style="color: #000">{{ $post->po_title }}</a></li>
-                                                        @endforeach
-                                                    </ul>
-                                                @endif
-                                            </div>
-                                        </div>
+<body>
+@php
+    $arrChild = [];
+@endphp
+@include('frontend.component._inc_header')
+<div class="container ">
+    <div class="nav-bar">
+        @foreach($categoryLevel1 as $cateLevel1)
+            <p>
+                <button style="width: 100%;height: 50px;" class="btn btn-success" type="button" data-toggle="collapse"
+                        data-target="#collapse{{ $cateLevel1->id }}" aria-expanded="false"
+                        aria-controls="collapse{{ $cateLevel1->id }}">{{ $cateLevel1->cpo_name }}
+                </button>
+            </p>
 
-                                    </div>
-                                    {{--@endif--}}
-                                @endforeach
-
-                            </div>
-                        </div>
+            @php
+                $child = \App\CategoryPosts::where('cpo_parent_id',$cateLevel1->id)->get();
+            @endphp
+            @if (!$child->isEmpty())
+                <div style="text-align:center ;" class="collapse shadow p-3 mb-5 bg-white rounded" id="collapse{{ $cateLevel1->id }}">
+                    <div class="card-body">
+                        @foreach($child ?? [] as $item)
+                            <a href="/danh-muc/{{ $item->cpo_slug }}/{{ $item->id }}">{{ $item->cpo_name }}</a>
+                        @endforeach
                     </div>
                 </div>
-
-{{--                <div class="col-sm-8" style="border: 1px solid #e7e7e7;">--}}
-{{--                    <div class="box-sm" style="margin-left: -15px;margin-right: -15px;">--}}
-{{--                        <div class="box-slide">--}}
-{{--                            <div id="myCarousel" class="carousel slide" data-ride="carousel">--}}
-{{--                                <!-- Indicators -->--}}
-{{--                                <ol class="carousel-indicators">--}}
-{{--                                    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>--}}
-{{--                                    <li data-target="#myCarousel" data-slide-to="1"></li>--}}
-{{--                                    <li data-target="#myCarousel" data-slide-to="2"></li>--}}
-{{--                                </ol>--}}
-{{--                                <!-- Wrapper for slides -->--}}
-{{--                                <div class="carousel-inner">--}}
-{{--                                    <div class="item active">--}}
-{{--                                        <img src="{{ asset('banner.jpg') }}" alt="Los Angeles" style="width:100%; height: 481px;">--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item">--}}
-{{--                                        <img src="{{ asset('banner3.jpg') }}" alt="Chicago" style="width:100%;height: 481px;">--}}
-{{--                                    </div>--}}
-{{--                                    <div class="item">--}}
-{{--                                        <img src="{{ asset('banner2.png') }}" alt="New york" style="width:100%;height: 481px;">--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <!-- Left and right controls -->--}}
-{{--                                <a class="left carousel-control" href="#myCarousel" data-slide="prev">--}}
-{{--                                    <span class="glyphicon glyphicon-chevron-left"></span>--}}
-{{--                                    <span class="sr-only">Previous</span>--}}
-{{--                                </a>--}}
-{{--                                <a class="right carousel-control" href="#myCarousel" data-slide="next">--}}
-{{--                                    <span class="glyphicon glyphicon-chevron-right"></span>--}}
-{{--                                    <span class="sr-only">Next</span>--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-            </div>
-
-            <div class="row clearfix"  >
-                <div class="col-sm-4" style="background: white;margin-top: 20px;padding-top: 10px;" >
-                    <div class="panel panel-default">
-                        <div class="panel-body title-post">
-                            <h2 class="title-new">  Giải thích thuật ngữ  </h2>
-                            <ul style="list-style: none">
-                                @foreach($postHot as $key => $hot)
-                                    <?php
-                                        $h_id = $hot->po_category_post_id;
-                                        $h_cate = \App\CategoryPosts::findOrFail($h_id);
-                                    ?>
-                                    <li><a href="/bai-viet/{{ $h_cate->cpo_parent_id }}/{{ $hot->po_slug }}/{{ $hot->id }}" style="color: #0053f9"> {{ $key + 1 }}. {{  $hot->po_title }}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
+            @endif
+        @endforeach
+    </div>
+    <div class="content-main">
+        @foreach($categoryLevel1 as $cateL1)
+            <div class="container-main">
+                <h2>{{ $cateL1->cpo_name }}</h2>
+                <div class="main-text">
+                    <div style="    -webkit-line-clamp: 3;
+                            -webkit-box-orient: vertical;
+                            color: #333;
+                            display: -webkit-box;
+                            font-size: 14px;
+                            line-height: 24px;
+                            margin-bottom: 20px;
+                            overflow: hidden;
+                            padding: 10px;
+                            text-overflow: ellipsis;">
+                        {!! $cateL1->cpo_content !!}
                     </div>
-                </div>
-                <div class="col-sm-4" style="background: white;margin-top: 20px;padding-top: 10px;">
-                    <div class="panel panel-default">
-                        <div class="panel-body title-post">
-                            <h2 class="title-new">  bài viết mới</h2>
-                            <ul style="list-style: none">
-                                @foreach($postNew as $key => $new)
-                                    <?php
-                                    $h_id = $new->po_category_post_id;
-                                    $h_cate = \App\CategoryPosts::findOrFail($h_id);
-                                    ?>
-                                    <li><a href="/bai-viet/{{ $h_cate->cpo_parent_id }}/{{ $new->po_slug }}/{{ $new->id }}" style="color: #0053f9"> {{ $key + 1 }}. {{ $new->po_title }}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4" style="background: white;margin-top: 20px;padding-top: 10px;">
-                    <div class="panel panel-default">
-                        <div class="panel-body title-post">
-                            <h2 class="title-new"> Bài viết liên quan </h2>
-                            <ul style="list-style: none">
-                                @foreach($postAbout as $key => $new)
-                                    <li><a href="{{ route('thongtin',[$new->id,$new->po_slug]) }}" style="color: #0053f9"> {{ $key + 1 }}. {{ $new->po_title }}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
+                    @php
+                        $child = \App\CategoryPosts::where('cpo_parent_id',$cateL1->id)->get();
+//                    @endphp
+                    @if (!$child->isEmpty())
+                        @foreach($child ?? [] as $item)
+                            <a href="/danh-muc/{{ $item->cpo_slug }}/{{ $item->id }}">{{ $item->cpo_name }}</a>
+                        @endforeach
+                    @endif
                 </div>
             </div>
-            <div class="row" style="background: white;padding: 20px;margin-top: 50px;margin-bottom: 50px;">
-                <div class="main-content ">
-                    <div class="box-title text-center">
-                        <h3 class="txt-title">Chúng tôi cung cấp gì cho bạn</h3>
-                        <p class="txt"> Trang web ôn luyện thi ISTQB miễn phí </p>
-                    </div>
-                    <div class="row main-provided">
-                        <div class="col-md-4">
-                            <div class="content-boxes-v5">
-                <span class="rounded-x icon-layers">
-                <i class="fa fa-book" aria-hidden="true"></i>
-                </span>
-                                <div class="overflow-h">
-                                    <h3 class="no-top-space">Tài nguyên miễn phí</h3>
-                                    <p>Tài nguyên trên trang web được sử dụng miễn phí bởi người dùng</p>
-                                </div>
-                            </div>
-                            <div class="content-boxes-v5">
-                <span class="rounded-x icon-settings">
-                <i class="fa fa-book" aria-hidden="true"></i>
-                </span>
-                                <div class="overflow-h">
-                                    <h3 class="no-top-space"> Giải thích các thuật ngữ. </h3>
-                                    <p> Các thuật ngữ sẽ giúp bạn dễ dàng tiếp cận nội dung bài học. </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="content-boxes-v5">
-                <span class="rounded-x icon-user-1 ">
-                <i class="fa fa-book" aria-hidden="true"></i>
-                </span>
-                                <div class="overflow-h">
-                                    <h3 class="no-top-space"> Các bài học chất lượng </h3>
-                                    <p> Các bài học được xây dựng từ đội ngũ chuyên nghiệp .</p>
-                                </div>
-                            </div>
-                            <div class="content-boxes-v5">
-                <span class="rounded-x icon-earphones-alt ">
-                <i class="fa fa-book" aria-hidden="true"></i>
-                </span>
-                                <div class="overflow-h">
-                                    <h3 class="no-top-space">Diễn đàn lớn mạnh</h3>
-                                    <p>Bạn có thể thảo luận, hỏi đáp tại diễn đàn của chúng tôi qua các kênh youtube và facebook</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="content-boxes-v5">
-                <span class="rounded-x icon-wrench">
-                <i class="fa fa-book" aria-hidden="true"></i>
-                </span>
-                                <div class="overflow-h">
-                                    <h3 class="no-top-space">Nội dung cập nhật</h3>
-                                    <p>Nội dung trên web được cập nhật liên tục hàng ngày bởi đội ngũ giáo viên giỏi.</p>
-                                </div>
-                            </div>
-                            <div class="content-boxes-v5 ">
-                <span class="rounded-x icon-star">
-                <i class="fa fa-book" aria-hidden="true"></i>
-                </span>
-                                <div class="overflow-h">
-                                    <h3 class="no-top-space">Giao diện thân thiện</h3>
-                                    <p>Trang web luôn lắng nghe góp ý để đổi mới trang web phục vụ các bạn học sinh, giáo viên, sinh viên cả nước</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!--/end row-->
-                </div>
+        @endforeach
+    </div>
+    <div class="content-button">
+        @foreach($categoryLevel1 as $item)
+            <div class="content-btn-click">
+                <a href="/danh-muc/{{ $item->cpo_slug }}/{{ $item->id }}" style="margin-bottom:5px ;" class="btn btn-outline-success">Học bài</a>
+                <a href="{{ route('post.quiz', $item->id) }}"  class="btn btn-outline-success">Làm bài</a>
             </div>
-        </div>
-    </section>
-    <section id="footer" style="background-color: #272727;min-height: 200px;color: white;padding-top: 20px;padding-bottom: 20px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-3">
-                    <a href="/" style="padding-top: 10px;padding-bottom: 10px;display: block;font-size: 20px;letter-spacing: 3px;color: #555555;">
-                        <img src="{{ asset('logo2.png') }}" alt="" style="width: 100%;height: auto;">
-                    </a>
-                </div>
-                <div class="col-sm-3">
-                    <h2 class="title-footer"> Danh mục nổi bật</h2>
-                    <div>
-                        <ul>
-                            @foreach($categoryLevel1 as $cate)
-                                <li><a href="/danh-muc/{{ $cate->cpo_slug }}/{{ $cate->id }}" style="color: white;">{{ $cate->cpo_name }}</a></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <h2 class="title-footer"> Lời cảm ơn</h2>
-                    <div>
-                        <p> Cảm ơn sự đóng góp cũng như ủng hộ của toàn thể các bạn ! Chúng tôi sẽ cố gắng hoàn thiện và cải tiến website để
-                            mang lại sự trải nghiệm tốt nhất cho các bạn! .
-                        </p>
-                    </div>
-                </div>
-            
-                <div class="col-sm-3">
-                    <h2 class="title-footer">Liên hệ với chúng tôi</h2>
-                    <span><i class="glyphicon glyphicon-map-marker" aria-hidden="true"></i> Hà Nội</span><br>
-                    <span style="display: inline-block;padding: 5px 0"><i class="	glyphicon glyphicon-phone-alt"></i> Phone: 0988506404</span><br>
-                    <span><i class="glyphicon glyphicon-envelope"></i> Email: <a href="mailto:hoangnamng404@gmail.com" style="color: #fb9f45">hoangnamng404@gmail.com</a></span>
-                </div>
+        @endforeach
+    </div>
+</div>
+
+<div class="contianer2">
+    <div class="d-flex flex-wrap" style="justify-content: center">
+        @foreach($categoryLevel1 as $item)
+        <a href="/danh-muc/{{ $item->cpo_slug }}/{{ $item->id }}">
+            <div class="item" style="width: 150px;height:100px;background-color:aqua">
+                <h2 style="font-size: 16px">{{ $item->cpo_name }}</h2>
             </div>
-        </div>
-    </section>
-</div>ơn
-@include('frontend.layouts.inc_footer')
+        </a>
+        @endforeach
+    </div>
+</div>
+<div class="footer">
+    <div class="icon-footer">
+
+        <svg style="margin-left:10px ;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+            <path
+                    d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/>
+        </svg>
+
+        <svg style="margin-left:10px ;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+            <path
+                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
+        </svg>
+        <svg style="margin-left:10px " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+            <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+            <path
+                    d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z"/>
+        </svg>
+        <svg style="margin-left:10px " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+            <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+            <path
+                    d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/>
+        </svg>
+        <svg style="margin-left:10px " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+            <path
+                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/>
+        </svg>
+    </div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</html>

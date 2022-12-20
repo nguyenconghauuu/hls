@@ -117,6 +117,7 @@ class QuestionsController extends Controller
                 move_uploaded_file($_FILES['qs_thunbar']['tmp_name'], public_path() . '/uploads/questions/' . $info['name']);
             }
         }
+//        dd($data);
         $id = DB::table('questions')->where('id',$id)->update($data);
         if($id > 0)
         {

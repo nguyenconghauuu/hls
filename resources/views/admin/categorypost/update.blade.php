@@ -49,22 +49,6 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label"> Hot </label>
-                                    <div class="col-sm-10">
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="cpo_hot" id="optionsRadios2" value="1" {{ $category->cpo_hot == 1 ? "checked=''"  : ''}} >
-                                                Có
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="cpo_hot" id="optionsRadios1" value="0"  {{ $category->cpo_hot == 0 ? "checked=''"  : ''}} >
-                                                Không
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"> Kiểu danh mục </label>
@@ -76,12 +60,6 @@
                                     </select>
                                 </div>
 
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"> Thứ tự hiển thị  </label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" name="cpo_sort" value="{{ $category->cpo_sort }}" id="inputEmail3" placeholder=" Mặc định bằng 0" min="0" autocomplete="off">
-                                </div>
                             </div>
                             <div class="form-group" style="margin:5px 0">
                                 <label for="inputEmail3" class="col-sm-12 control-label" style="text-align: left;margin-bottom: 10px;padding-right: 30px;padding-left: 30px;"> Nội dung </label>

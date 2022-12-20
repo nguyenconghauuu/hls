@@ -49,22 +49,6 @@
                                         @endif
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label"> Hot </label>
-                                    <div class="col-sm-10">
-                                        <div class="radio">
-                                            <label>
-                                                <input type="radio" name="cpo_hot" id="optionsRadios2" value="1" >
-                                                Có
-                                            </label>
-                                            <label>
-                                                <input type="radio" name="cpo_hot" id="optionsRadios1" value="0" checked="" >
-                                                Không
-                                            </label>
-                                        </div>
-                                    </div>
-
-                                </div>
                             </div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label"> Kiểu danh mục </label>
@@ -74,12 +58,6 @@
                                         <option value="2"> Kiểu 2 </option>
                                         <option value="3"> Kiểu 3 </option>
                                     </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-2 control-label"> Thứ tự hiển thị  </label>
-                                <div class="col-sm-10">
-                                    <input type="number" class="form-control" name="cpo_sort" value="{{ old('cpo_sort') }}" id="inputEmail3" placeholder=" Mặc định bằng 0" min="0" autocomplete="off">
                                 </div>
                             </div>
                             <div class="form-group" style="margin:5px 0">

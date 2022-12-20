@@ -1,300 +1,190 @@
-@include('frontend.layouts.inc_header')
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v2.12&appId=967276326757532&autoLogAppEvents=1';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-    <section style="background-color: #f1f1f16e;margin-bottom: 100px;">
-        <div class="container-fluid">
-            <div class="row clearfix">
-                <div class="col-sm-3" id="fix-left" style="border: 1px solid #dedede;position: fixed;background-color: white">
-                    <div id="sidebar" style="">
-                        <ul style="padding-left: 10px;list-style: none;height: 600px;overflow-y:auto; overflow-x:hidden;" id="ul-sidebar">
-                            @if( count($CategoryChildrens) > 0)
-                                @foreach($CategoryChildrens as $childrenCate)
-                                    <li>
-{{--                                        <a href="javascript:void(0)" title="{{ $childrenCate->cpo_name }}" class="no-drop">{{ $childrenCate->cpo_name }}</a>--}}
-                                        <a href="{{ route('show-category-cap2',[$childrenCate->cpo_slug,$childrenCate->id]) }}" title="{{ $childrenCate->cpo_name }}"  style="color: #4285f4;font-weight: bold">{{ $childrenCate->cpo_name }}</a>
-                                        <?php
-                                            $posts = DB::table('posts')
-                                            ->leftJoin('categoryposts', 'categoryposts.id', '=', 'posts.po_category_post_id')
-                                            ->select('posts.id','posts.po_title','posts.po_slug','posts.po_category_post_id','categoryposts.cpo_slug')
-                                            ->where('po_category_post_id',$childrenCate->id)->orderBy('po_sort','ASC')->get();
-                                        ?>
-                                        @if($posts->count() > 0 )
-                                            <ul>
-                                                @foreach($posts as $post)
-                                                    <li><a {!! Request::segment(4) == $post->id ? "style='color:#00a888'"  : "" !!} href="/bai-viet/{{ $childrenCate->cpo_parent_id }}/{{ $post->po_slug }}/{{ $post->id }}" title="{{ $post->po_title }}" style="color: #222">{{ $post->po_title }}</a></li>
-                                                @endforeach
-                                            </ul>
-                                        @endif
-                                    </li>
-                                @endforeach
-                            @else
-                                <li>
-                                    <a href=""> Chưa có dữ liệu  </a>
-                                </li>
-                            @endif
+<!DOCTYPE html>
+<html lang="en">
 
-                        </ul>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>Content</title>
+</head>
+<style>
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Fragment Mono', monospace;
+    }
 
-                    </div>
-                </div>
+    .header {
+        width: 100%;
+        height: auto;
+        display: flex;
+    }
 
-                <div class="col-sm-9" style="margin-left: 24.9%;">
-                    <div id="box-content">
-                        <div style="padding: 20px ;border: 1px solid #dedede;margin-bottom: 10px;background-color: white">
-                            <div style="border-bottom: 1px solid #dfdfdf;padding-bottom: 20px;" class="clearfix">
-                                <?php
-                                    $pre  = DB::table('posts')->where('po_sort','<',$postDetail->po_sort)->orderBy('po_sort','DESC')->first();
-                                    $next = DB::table('posts')->where('po_sort','>',$postDetail->po_sort)->orderBy('po_sort','ASC')->first();
-                                ?>
+    .navbar {
+        width: 100%;
+    }
 
-                                @if($pre)
-                                    <a style="margin-right: 10px;font-size: 14px;" href="/bai-viet/{{ Request::segment(2) }}/{{ $pre->po_slug }}/{{ $pre->id }}" class="btn btn-xs btn-success pull-left" >Trang Trước</a>
-                                @endif
-                                    <?php
-                                        $check_qs = DB::table('questions')->where('qs_post_id',$postDetail->id)->first();
-                                    ?>
-                                    @if( $check_qs)
-                                        <a href="javascript:void(0)"  class="text-center btn btn-xs questions-modail" style="background-color: #00a888;color: white;position: absolute;transform: translateX(-50%);left: 50%;font-size: 14px" data-id=<?= $postDetail->id ?>> Câu hỏi ôn tập </a>
-                                    @endif
-                                @if($next)
-                                        <a style="margin-right: 10px;font-size: 14px;" href="/bai-viet/{{ Request::segment(2) }}/{{ $next->po_slug }}/{{ $next->id }}" class="btn btn-xs btn-success pull-right">Trang Sau</a>
-                                @endif
 
-                            </div>
 
-                            <h2 style="margin-top: 20px;font-size: 36px" class="title-detail-post">{{  $postDetail->po_title }}</h2>
-                            <div class="content-post" style="padding: 20px;">
-                                {!! $postDetail->po_content !!}
-                            </div>
-                            <div style="border-bottom: 1px solid #dfdfdf;padding-bottom: 20px;" class="clearfix">
-                                <?php
-                                $pre  = DB::table('posts')->where('po_sort','<',$postDetail->po_sort)->orderBy('po_sort','DESC')->first();
-                                $next = DB::table('posts')->where('po_sort','>',$postDetail->po_sort)->orderBy('po_sort','ASC')->first();
-                                ?>
-                                @if($pre)
-                                    <a style="margin-right: 10px;font-size: 14px;" href="/bai-viet/{{ Request::segment(2) }}/{{ $pre->po_slug }}/{{ $pre->id }}" class="btn btn-xs btn-success pull-left">Trang Trước</a>
-                                @endif
-                                <?php
-                                        $check_qs = DB::table('questions')->where('qs_post_id',$postDetail->id)->first();
-                                    ?>
-                                    @if( $check_qs)
-                                        <a href="javascript:void(0)" id="" class="text-center btn btn-xs questions-modail" style="background-color: #00a888;color: white;position: absolute;transform: translateX(-50%);left: 50%;font-size: 14px" data-id=<?= $postDetail->id ?>> Câu hỏi ôn tập </a>
-                                    @endif
-                            
-                                @if($next)
-                                    <a style="margin-right: 10px;font-size: 14px;" href="/bai-viet/{{ Request::segment(2) }}/{{ $next->po_slug }}/{{ $next->id }}" class="btn btn-xs btn-success pull-right">Trang Sau</a>
-                                @endif
+    /*  */
+    .main {
+        display: flex;
+        width: 100%;
 
-                            </div>
-                        </div>
-                        <div style="padding: 20px ;border: 1px solid #dedede;margin-bottom: 10px;background-color: white" >
-                        <ul class="nav nav-tabs">
-                            <li class="active"><a data-toggle="tab" href="#home"> Bình luận </a></li>
-                            <li><a data-toggle="tab" href="#menu1"> Comment Facebook </a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div id="home" class="tab-pane fade in active">
-                                <div id="form-comment" class="col-sm-6 ">
-                                    <h2>Gủi bình luận của bạn</h2>
-                                    @if(  Auth::guard('web')->check())
-                                        <form method="POST" action="">
-                                            <div class="form-group">
-                                                <label for="usr">Nội Dung <span style="color: red;font-size: 20px">*</span></label>
-                                                <textarea name="cmt_content" id="" cols="30" rows="5" class="form-control" required></textarea>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <input type="submit" class="form-control btn btn-xs btn-success" id="pwd" value=" Gửi đi">
-                                            </div>
-                                        </form>
-                                    @else
-                                        <h4 style="color: red">Đăng nhập để được bình luận</h4>
-                                    @endif
-                                </div>
+    }
 
-                                <div class="col-sm-6" id="content-comment">
-                                    <div style="padding-left: 30px;padding-right: 30px;">
-                                        <h2 style="border-bottom: 2px solid ;padding-bottom: 20px;">Nội dung comment bài viết </h2>
+    .slide-content {
+        width: 21%;
+        height: auto;
+        padding:20px 0px 0px 20px;
+        display: flex;
+        flex-direction: column;
+    }
 
-                                        <!-- Left-aligned media object -->
-                                        @if($comments->count() > 0)
-                                            @foreach($comments as $cmt)
-                                                <div class="media">
-                                                    <div class="media-left">
-                                                        <img src="{{ asset('frontend/img_avatar1.png') }}" class="media-object" style="width:40px">
-                                                    </div>
-                                                    <div class="media-body">
-                                                        <p> {{ $cmt->cmt_content }}.</p>
-                                                    </div>
-                                                </div>
-                                                <hr>
-                                            @endforeach
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            <div id="menu1" class="tab-pane fade">
-                                <div id="form-comment" class="col-sm-12 ">
-                                    @if (\Auth::guard('web')->check())
-                                        <h5>Gủi bình luận của bạn</h5>
-                                    <div class="fb-comments" data-width="100%" data-href="http://127.0.0.1:8000/bai-viet/{{ Request::segment(2) }}/{{ Request::segment(3) }}/{{ Request::segment(4) }}" data-numposts="5"></div>
-                                    @else
-                                        {{--<span> Đăng nhập để bình luận </span>--}}
-                                        <h4 style="color: red">Đăng nhập để được bình luận</h4>
-                                    @endif
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
-                            
-                        </div>
-                            
-                        </div>
-                    </div>
-                    <div class="footer" style="padding: 20px ;border: 1px solid #dedede;background-color: white;position: fixed;bottom: 0;width: 79.6%">
-                        <p style="color: #333"> Khoá Luận Tốt Nghiệp <a href=""> Nguyễn Thị Thuý </a></p>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
+    .slide-content a {
+        text-decoration: none;
+        color: #000;
+        display: block;
+    }
+
+    .container {
+        display: flex;
+        width: 100%;
+        height: 1000px;
+        margin-top: 20px;
+    }
+
+    .content {
+        width: 90%;
+        height: 200px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .page{
+        margin: auto;
+    }
+    /*  */
+    .footer {
+        display: flex;
+        margin-left: 20px;
+        padding:20px 0px 0px 20px;
+        width: 100%;
+        background-color: whitesmoke;
+        height: 200px;
+    }
+    .logo-footer{
+        width: 30%;
+    }
+    .content-footer{
+        width:50% ;
+    }
+    .icon-footer {
+        display: flex;
+        width: 15%;
+    }
+    .list-cate-sidebar .active {
+        color: #28a745;
+    }
+</style>
+
+<body>
+@include('frontend.component._inc_header')
+<div class="main">
+    <div class="slide-content">
+        @if (isset($categoyParent) && $categoyParent)
+            <div style="text-align:center" class="shadow-none p-3 mb-5 bg-light rounded">{{ $categoyParent->cpo_name }}</div>
+        @else
+            <div style="text-align:center" class="shadow-none p-3 mb-5 bg-light rounded">{{ $categoy->cpo_name }}</div>
+        @endif
+
+        <div style="text-align:center; margin-top: -40px;" class="collapse show shadow p-3 mb-5 bg-white rounded" >
+            <div class="card-body list-cate-sidebar">
+                @foreach($CategoryChildrens as $key => $childrenCate)
+                    <a class="{{ $childrenCate->id == $idCate ? 'active' : '' }}" href="/danh-muc/{{ $childrenCate->cpo_slug }}/{{ $childrenCate->id }}">{{ $childrenCate->cpo_name }}</a>
+                @endforeach
             </div>
-
         </div>
-    </section>
+
+    </div>
+    <div class="container shadow p-3 mb-5 bg-white rounded" style="background-color: whitesmoke;">
+        <div class="content">
+            <h1>{{  $postDetail->po_title }}</h1>
+            <div>
+                {!! $postDetail->po_content !!}
+            </div>
+            <div class="">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination" style="display: flex;flex-direction: column">
+
+                        <?php
+                        $posts = DB::table('posts')
+                            ->leftJoin('categoryposts', 'categoryposts.id', '=', 'posts.po_category_post_id')
+                            ->select('posts.id','posts.po_title','posts.po_slug','posts.po_category_post_id','categoryposts.cpo_slug')
+                            ->where('po_category_post_id',$categoy->id)->orderBy('po_sort','ASC')->get();
+                        ?>
+                        @if($posts->count() > 0 )
+                            @foreach($posts as $key => $post)
+                                <li class="page-item"><a class="age-link" href="/bai-viet/{{ $childrenCate->cpo_parent_id }}/{{ $post->po_slug }}/{{ $post->id }}" title="{{ $post->po_title }}" style="color: #000">Bài {{ $key + 1 }} : {{ $post->po_title }}</a></li>
+                            @endforeach
+                        @endif
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+    </div>
 
 </div>
+<div class="footer">
+    <div class="logo-footer">
+        <a href=""><img style="width:300px" src="./hls.jpg" alt=""></a>
+    </div>
+    <div class="content-footer">
+        <h5>Thông tin liên hệ</h5>
+        <h5>Địa chỉ</h5>
+        <h5>Email</h5>
+        <h5>Hotline</h5>
+    </div>
+    <div class="icon-footer" style="margin-top:-150px ;" >
 
-<div id="myModal-question" class="modal fade" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title" style="text-transform: uppercase"> Câu hỏi ôn tập : {{ $postDetail->po_title }}</h4>
-            </div>
-            <div class="modal-body" id="content-question" style="height: 500px;overflow-y: auto">
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-            </div>
-        </div>
+        <svg style="margin-left:10px ;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+            <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+            <path
+                    d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z" />
+        </svg>
+
+        <svg style="margin-left:10px ;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+            <path
+                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+        </svg>
+        <svg style="margin-left:10px " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+            <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+            <path
+                    d="M524.531,69.836a1.5,1.5,0,0,0-.764-.7A485.065,485.065,0,0,0,404.081,32.03a1.816,1.816,0,0,0-1.923.91,337.461,337.461,0,0,0-14.9,30.6,447.848,447.848,0,0,0-134.426,0,309.541,309.541,0,0,0-15.135-30.6,1.89,1.89,0,0,0-1.924-.91A483.689,483.689,0,0,0,116.085,69.137a1.712,1.712,0,0,0-.788.676C39.068,183.651,18.186,294.69,28.43,404.354a2.016,2.016,0,0,0,.765,1.375A487.666,487.666,0,0,0,176.02,479.918a1.9,1.9,0,0,0,2.063-.676A348.2,348.2,0,0,0,208.12,430.4a1.86,1.86,0,0,0-1.019-2.588,321.173,321.173,0,0,1-45.868-21.853,1.885,1.885,0,0,1-.185-3.126c3.082-2.309,6.166-4.711,9.109-7.137a1.819,1.819,0,0,1,1.9-.256c96.229,43.917,200.41,43.917,295.5,0a1.812,1.812,0,0,1,1.924.233c2.944,2.426,6.027,4.851,9.132,7.16a1.884,1.884,0,0,1-.162,3.126,301.407,301.407,0,0,1-45.89,21.83,1.875,1.875,0,0,0-1,2.611,391.055,391.055,0,0,0,30.014,48.815,1.864,1.864,0,0,0,2.063.7A486.048,486.048,0,0,0,610.7,405.729a1.882,1.882,0,0,0,.765-1.352C623.729,277.594,590.933,167.465,524.531,69.836ZM222.491,337.58c-28.972,0-52.844-26.587-52.844-59.239S193.056,219.1,222.491,219.1c29.665,0,53.306,26.82,52.843,59.239C275.334,310.993,251.924,337.58,222.491,337.58Zm195.38,0c-28.971,0-52.843-26.587-52.843-59.239S388.437,219.1,417.871,219.1c29.667,0,53.307,26.82,52.844,59.239C470.715,310.993,447.538,337.58,417.871,337.58Z" />
+        </svg>
+        <svg style="margin-left:10px " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+        <svg style="margin-left:10px " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
     </div>
 </div>
-<script type="text/javascript" src="/frontend/js/jquery.js"></script>
-<script type="text/javascript" src="/frontend/js/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.1/bootstrap3-typeahead.min.js"></script>
+
 </body>
-</html>
-<script type="text/javascript">
-    $(window).bind('scroll', function () {
-        if ($(window).scrollTop() > 50) {
-            $('#main-menu').addClass('fixed-menu');
-        } else {
-            $('#main-menu').removeClass('fixed-menu');
-        }
-    });
-    $("#ul-sidebar").css("height",$(window).height() - 115);
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script>
 
-    $(function(){
-        $(".questions-modail").on('click',function(){
-            $("#myModal-question").modal("show");
-            let $idPost = $(this).attr('data-id');
-            console.log($idPost);
-            $.ajax({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                },
-                type: "POST",
-                dataType : 'json',
-                url:  '/bai-viet/question-ajax/' + $idPost,
-                data: { 'idpost': $idPost },
-                success: function( msg ) {
-                    let string  = '';
-                    if( msg && msg.questions.length > 0)
-                    {
-                        console.log(msg.questions);
-                        function  convertQuestion(string)
-                        {
-                            switch (string)
-                            {
-                                case 'qs_answer1':
-                                    return ' Đáp án A';
-                                    break;
-                                case 'qs_answer2':
-                                    return ' Đáp án B';
-                                    break;
-                                case 'qs_answer3':
-                                    return ' Đáp án C';
-                                    break;
-                                default:
-                                    return ' Đáp án D';
-                            }
-                        }
-                        $.each(msg.questions , function (index, value ) {
-                            $key = index + 1;
-                            string += ' <div class="modal-item">\n' +
-                        '                    <h5 style="display: inline-flex;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 868px;font-weight: bold"> '+$key+'. '+value.qs_name+' : '+ ' '+' ( K'+ value.qs_level +' ) </h5>\n' +
-                        '                    <p><b>a</b> '+value.qs_answer1+' </p>\n' +
-                        '                    <p><b>b</b> '+value.qs_answer2+' </p>\n' +
-                        '                    <p><b>c</b> '+value.qs_answer3+' </p>\n' +
-                        '                    <p><b>d</b> '+value.qs_answer4+' </p>\n' +
-                        '                    <a href="javascript:void(0)" class="qs_answer_true">Xem đáp án </a>'+
-                        '                            <div class="box-item-question">'+
-                       '                                <span> '+convertQuestion(value.qs_answer_true)+'</span>'+
-                        '                                <div> Gợi ý : '+value.qs_suggestion+' </div>'+
-                         '                          </div>'+
-                        '                </div>'
-                        })
-                        $("#content-question").html('').append($(string));
-                    }
-                },
-                processData: false,
-                contentType: false,
-                error : function () {
-                    console.log(" LOI AJAX ");
-                }
-            });
-        });
-    });
-
-    $(document).on('click','.qs_answer_true', function(){
-        $(this).parent().find(".box-item-question").toggle();
-    })
-    $(window).bind('scroll', function () {
-        if ($(window).scrollTop() > 50) {
-            $('#main-menu').addClass('fixed-menu');
-            $("#fix-left").addClass('fix-left');
-        } else {
-            $('#main-menu').removeClass('fixed-menu');
-            $("#fix-left").removeClass('fix-left');
-        }
-    });
-    $(function(){
-        var path = "{{ route('searchTypehead') }}";
-        $('input.typeahead').typeahead({
-            source:  function (query, process) {
-
-                return $.get(path, { query: query }, function (data) {
-                    console.log(data);
-                    $("#result").show();
-                    $html  = '';
-                    if(data && data.length > 0)
-                    {
-                        $.each(data , function(index, value){
-                            $html += "<li><a href='/bai-viet/1/"+value.po_slug+"/"+value.id+"'>"+value.po_title+"</a></li>"
-//                            $html += "<li><a href='/san-pham/"+value.po_slug+"-"+value.id+".html'>"+value.po_title+"</a></li>"
-                        });
-                    }else {
-                        $("#result").html('').append('<li><a href="#"> Không có dữ liệu </a></li>');
-                    }
-                    $("#result").html('').append($html);
-                });
-            }
-        });
-    })
 </script>
+
+</html>

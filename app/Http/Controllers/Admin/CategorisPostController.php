@@ -4,9 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\CategoryPosts;
 use App\Http\Requests\CategoryPostRequest;
-// use Illuminate\Http\Request;
-use App\Http\Requests\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class CategorisPostController extends Controller
@@ -14,10 +13,15 @@ class CategorisPostController extends Controller
     /**
      * hiển thi danh sách danh mục
      */
-    public function index()
+    public function index(Request $request)
     {
         $cateModel = new CategoryPosts();
-        $catePost = DB::table('categoryposts')->get();
+        $catePost = DB::table('categoryposts')->whereRaw(1);
+
+        if ($request->title)
+            $catePost->where('cpo_name','like','%'.$request->title.'%');
+
+        $catePost =  $catePost->get();
 
         // gọi hàm đệ quy sắp xếp lai danh mục theo thứ tự
         $cateModel->recursive($catePost, $parent = 0 , $level = 1, $sortCategoryPost);
@@ -51,6 +55,7 @@ class CategorisPostController extends Controller
         $data = $request->all();
         $data['cpo_slug'] = str_slug($request->cpo_name);
         unset($data['_token']);
+
         $id = CategoryPosts::insert($data);
         if($id > 0)
         {

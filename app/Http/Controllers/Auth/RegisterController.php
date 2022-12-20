@@ -46,9 +46,9 @@ class RegisterController extends Controller
     public function getRegister()
     {
         // lay danh muc cap 1
-        $categoryLevel1 = \DB::table('categoryposts')->where('cpo_parent_id',0)->orderBy('cpo_sort','ASC')->get();
+        $categoryLevel1 = \DB::table('categoryposts')->where('cpo_parent_id',0)->orderBy('id','ASC')->get();
         \View::share('categoryLevel1', $categoryLevel1);
-        return view('accounts.dang_ky');
+        return view('accounts.register');
     }
     protected function postRegister(Request $request)
     {

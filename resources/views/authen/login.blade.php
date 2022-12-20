@@ -32,7 +32,7 @@
         <form action="" method="post">
             {{ csrf_field() }}
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" name="email" placeholder="admin@gmail.com" autocomplete="off" value="doantotnghiep@gmail.com">
+                <input type="email" class="form-control" name="email" placeholder="admin@gmail.com" autocomplete="off" value="namnguyen@gmail.com">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 @if($errors->first('email'))
                     <span class="text-danger">{{ $errors->first('email') }}</span>
@@ -62,14 +62,14 @@
         </form>
         <div class="social-auth-links text-center">
             <p>- OR -</p>
-            <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-                Facebook</a>
+            <!-- <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+                Facebook</a> -->
             <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-                Google+</a>
+                Gmail</a>
         </div>
         <!-- /.social-auth-links -->
         <a href="" class="pull-left"> Quên mật khẩu </a>
-        <a href="" class="text-center pull-right"> Đăng ký mới </a>
+{{--        <a href="" class="text-center pull-right"> Đăng ký mới </a>--}}
         <div class="clearfix"></div>
     </div>
     <!-- /.login-box-body -->

@@ -17,6 +17,7 @@ class CheckLoginAdmin
     {
         // kiem tra login admin
         // neu chua login thi redirect ve trang login
+
         $checkAdmin = Auth::guard('admins')->check();
         if( ! $checkAdmin )
         {

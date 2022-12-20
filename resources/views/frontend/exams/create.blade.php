@@ -36,7 +36,7 @@
             <div class="col-sm-3" id="fix-left" style="border: 1px solid #dedede;position: fixed;background-color: white">
                 <div id="sidebar" style="min-height:600px;" >
                     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                                <h4 style="padding-left: 15px;color: #4285f4;font-size: 14px;text-transform: uppercase;font-weight: bold"> Chương tình học ISTQB CƠ BẢN </h4>
+                                <h4 style="padding-left: 15px;color: #4285f4;font-size: 14px;text-transform: uppercase;font-weight: bold"> Chương tình học Javascrip </h4>
                                 @foreach($sortCategory as $key => $cate)
                                     @if($cate->level == 2)
                                     <div class="panel panel-default">
@@ -78,7 +78,7 @@
 
                 <div id="box-content">
                     <div style="padding: 20px ;border: 1px solid #dedede;margin-bottom: 10px;background-color: white">
-                        <h2 style="text-align: center;text-transform: uppercase"> Chào mừng bạn đến hệ thống ôn luyện thi chứng chỉ istqb</h2>
+                        <h2 style="text-align: center;text-transform: uppercase">CHÀO MỪNG BẠN ĐẾN VỚI HỆ THỐNG LUYỆN THI HOME LEARNING SOFTWARE</h2>
 
                         <div class="clearfix">
                             <div class="col-sm-8 col-sm-offset-2 clearfix">
@@ -115,7 +115,7 @@
 
                 </div>
                 <div class="footer" style="padding: 20px ;border: 1px solid #dedede;background-color: white;position: fixed;bottom: 0;width: 79.6%">
-                    <p style="color: #333"> Khoá Luận Tốt Nghiệp <a href=""> Nguyễn Thị Thuý </a></p>
+                    <p style="color: #333"> Thực Hành Dự Án <a href="">  </a></p>
                 </div>
             </div>
             <div class="clearfix"></div>

@@ -1,159 +1,93 @@
-<link href="/frontend/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="/frontend/js/bootstrap.min.js"></script>
-<script src="/frontend/js/jquery.js"></script>
-<!------ Include the above in your HEAD tag ---------->
 
-{{--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">--}}
-{{--<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">--}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>FormLogin</title>
+</head>
 <style>
+    .img-logo{
+        width: 8%;
+    }
+    .body{
+        margin: auto;
 
-    /*
-        Note: It is best to use a less version of this file ( see http://css2less.cc
-        For the media queries use @screen-sm-min instead of 768px.
-        For .omb_spanOr use @body-bg instead of white.
-    */
-
-    @media (min-width: 768px) {
-        .omb_row-sm-offset-3 div:first-child[class*="col-"] {
-            margin-left: 25%;
-        }
+    }
+    .form-login{
+        width: 400px;
+        height: auto;
+        margin: auto;
+    }
+    .login{
+        padding: 30px;
     }
 
-    .omb_login .omb_authTitle {
-        text-align: center;
-        line-height: 300%;
-    }
-
-    .omb_login .omb_socialButtons a {
-        color: white; // In yourUse @body-bg
-    opacity:0.9;
-    }
-    .omb_login .omb_socialButtons a:hover {
-        color: white;
-        opacity:1;
-    }
-    .omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998;}
-    .omb_login .omb_socialButtons .omb_btn-twitter {background: #00aced;}
-    .omb_login .omb_socialButtons .omb_btn-google {background: #c32f10;}
-
-
-    .omb_login .omb_loginOr {
-        position: relative;
-        font-size: 1.5em;
-        color: #aaa;
-        margin-top: 1em;
-        margin-bottom: 1em;
-        padding-top: 0.5em;
-        padding-bottom: 0.5em;
-    }
-    .omb_login .omb_loginOr .omb_hrOr {
-        background-color: #cdcdcd;
-        height: 1px;
-        margin-top: 0px !important;
-        margin-bottom: 0px !important;
-    }
-    .omb_login .omb_loginOr .omb_spanOr {
-        display: block;
-        position: absolute;
-        left: 50%;
-        top: -0.6em;
-        margin-left: -1.5em;
-        background-color: white;
-        width: 3em;
+    .lostpassword{
+        margin-top: 20px;
         text-align: center;
     }
-
-    .omb_login .omb_loginForm .input-group.i {
-        width: 2em;
+    .register{
+        display: flex;
+        flex-direction: row;
     }
-    .omb_login .omb_loginForm  .help-block {
-        color: red;
-    }
-
-
-    @media (min-width: 768px) {
-        .omb_login .omb_forgotPwd {
-            text-align: right;
-            margin-top:10px;
-        }
+    .register{
+        margin-top: 10px;
+        margin-left: 40px;
     }
 </style>
-<div class="container">
 
-
-    <div class="omb_login">
-        <h3 class="omb_authTitle">Login or <a href="#">Sign up</a></h3>
-        <div class="row omb_row-sm-offset-3 omb_socialButtons">
-            <div class="col-xs-4 col-sm-2">
-                <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
-                    <i class="fa fa-facebook visible-xs"></i>
-                    <span class="hidden-xs">Facebook</span>
-                </a>
-            </div>
-            <div class="col-xs-4 col-sm-2">
-                <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
-                    <i class="fa fa-twitter visible-xs"></i>
-                    <span class="hidden-xs">Twitter</span>
-                </a>
-            </div>
-            <div class="col-xs-4 col-sm-2">
-                <a href="#" class="btn btn-lg btn-block omb_btn-google">
-                    <i class="fa fa-google-plus visible-xs"></i>
-                    <span class="hidden-xs">Google+</span>
-                </a>
-            </div>
+<body>
+<img class="img-logo" src="hls.jpg" alt="">
+<div class="form-login border rounded shadow p-3 mb-5 bg-white rounded" style="margin-top:50px;">
+    <h3 style="padding:20px 0px 0px 30px ;">Đăng nhập</h3>
+    @if(session('message'))
+        <p style="color: red;text-align: center">{{session('message')}}</p>
+    @endif
+    <form class="login" action="" method="POST">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email</label>
+            <input style="height: 50px;" name="u_email"  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                   placeholder="Nhập email">
+            @if ($errors->has('u_email'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('u_email') }}</strong>
+                </span>
+            @endif
         </div>
-
-        <div class="row omb_row-sm-offset-3 omb_loginOr">
-            <div class="col-xs-12 col-sm-6">
-                <hr class="omb_hrOr">
-                <span class="omb_spanOr">or</span>
-            </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Mật khẩu</label>
+            <input style="height: 50px;" name="u_password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập mật khẩu">
+            @if ($errors->has('u_password'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('u_password') }}</strong>
+                </span>
+            @endif
         </div>
-
-        <div class="row omb_row-sm-offset-3">
-            <div class="col-xs-12 col-sm-6">
-                <form class="omb_loginForm" action="" autocomplete="off" method="POST">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input type="email" class="form-control" name="u_email" placeholder="Email đăng nhập">
-                        @if ($errors->has('u_email'))
-                            <span class="help-block">
-                                        <strong>{{ $errors->first('u_email') }}</strong>
-                                    </span>
-                        @endif
-                    </div>
-                    <span class="help-block"></span>
-
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input  type="password" class="form-control" name="u_password" placeholder=" Mật khẩu đăng nhập">
-                        @if ($errors->has('u_password'))
-                            <span class="help-block">
-                                        <strong>{{ $errors->first('u_password') }}</strong>
-                                    </span>
-                        @endif
-                    </div>
-                    {{--<span class="help-block">Ghi Nhớ Mật Khẩu</span>--}}
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <button class="btn btn-lg btn-primary btn-block" style="margin-top: 10px;" type="submit"> Đăng Nhập</button>
-                </form>
-            </div>
+        <button style="width: 100%;height: 50px;border-radius: 30px;" type="submit" class="btn btn-primary">Đăng nhập</button>
+        <div  class="register">
+            <p>Bạn cần một tài khoản ? </p><a href="{{ route('dangky.user') }}">Đăng ký</a>
         </div>
-        <div class="row omb_row-sm-offset-3">
-            <div class="col-xs-12 col-sm-3">
-                <label class="checkbox">
-                    <input type="checkbox" value="remember-me">Ghi Nhớ Mật Khẩu
-                </label>
-            </div>
-            <div class="col-xs-12 col-sm-3">
-                <p class="omb_forgotPwd">
-                    <a href="#">Quên Mật Khẩu</a>
-                </p>
-            </div>
-        </div>
-    </div>
-
-
-
+        <p><a href="{{ route('get.forgot_password') }}">Quên mật khẩu</a>
+    </form>
 </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script>
+
+</script>
+
+</html>

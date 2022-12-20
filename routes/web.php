@@ -29,16 +29,7 @@ Route::group(['prefix' => '/admins','middleware' => 'admins'], function() {
         Route::get('/{id}/hot',['as' => 'admin.categorypost.hot','uses' => 'Admin\CategorisPostController@hot']);
     });
 
-    // xử lý danh mục sản phẩm  
-    Route::group(['prefix' => '/category-product'], function () {
-        Route::get('/', ['as' => 'admin.categoryproduct.index','uses' => 'Admin\CategorisProductController@index']);
-        Route::get('/add', ['as' => 'admin.categoryproduct.add','uses' => 'Admin\CategorisProductController@getAdd']);
-        Route::post('/add', ['as' => 'admin.categoryproduct.create','uses' => 'Admin\CategorisProductController@createCategory']);
-        Route::get('/{id}/edit',['as' => 'admin.categoryproduct.edit','uses' => 'Admin\CategorisProductController@getEdit']);
-        Route::post('/{id}/edit',['uses' => 'Admin\CategorisProductController@postEdit']);
-        Route::get('/{id}/delete',['as' => 'admin.categoryproduct.delete','uses' => 'Admin\CategorisProductController@delete']);
-        Route::get('/{id}/hot',['as' => 'admin.categoryproduct.hot','uses' => 'Admin\CategorisProductController@hot']);
-    });
+
     // xử lý bài viết
     Route::group(['prefix' => '/posts'], function () {
         Route::get('/', ['as' => 'admin.posts.index','uses' => 'Admin\PostsController@index']);
@@ -79,17 +70,6 @@ Route::group(['prefix' => '/admins','middleware' => 'admins'], function() {
         Route::post('/', ['as' => 'admin.settings.saveinfo','uses' => 'Admin\SettingsController@saveInfo']);
     });
 
-    /**
-     * slide 
-     */
-    Route::group(['prefix' => 'slides'], function () {
-        Route::get('/', ['as' => 'admin.slides.index','uses' => 'Admin\SlidesController@index']);
-        Route::get('/add', ['as' => 'admin.slides.add','uses' => 'Admin\SlidesController@getAdd']);
-        Route::post('/add', ['as' => 'admin.slides.posts','uses' => 'Admin\SlidesController@createCategory']);
-        Route::get('/{id}/edit', ['as' => 'admin.slides.edit','uses' => 'Admin\SlidesController@getEdit']);
-        Route::post('/{id}/edit', ['uses' => 'Admin\SlidesController@postEdit']);
-        Route::get('/{id}/delete',['as' => 'admin.slides.delete','uses' => 'Admin\SlidesController@delete']);
-    });
 
     // quan ly thành viên 
     Route::group(['prefix' => 'users'], function() {
@@ -130,20 +110,7 @@ Route::group(['prefix' => '/admins','middleware' => 'admins'], function() {
         Route::post('/',['uses' => 'Admin\ProfilesAdminController@saveProfile']);
     });
 
-    /**
-     * gui gmail 
-     */
-    Route::group(['prefix' => 'gmail'], function() {
-        Route::get('/', ['as' => 'admin.gmail.index','uses' => 'Admin\GmailAdminController@index']);
-        Route::get('/add', ['as' => 'admin.gmail.add','uses' => 'Admin\GmailAdminController@add']);
-        Route::post('/add',['uses' => 'Admin\GmailAdminController@saveEmail']);
 
-        Route::get('/{id}/edit', ['as' => 'admin.gmail.edit','uses' => 'Admin\GmailAdminController@getEdit']);
-        Route::post('/{id}/edit', ['uses' => 'Admin\GmailAdminController@postEdit']);
-        Route::get('/{id}/delete',['as' => 'admin.gmail.delete','uses' => 'Admin\GmailAdminController@delete']);
-        //send email
-         Route::get('/sendemail', ['as' => 'admin.gmail.sendemail','uses' => 'Admin\GmailAdminController@sendemail']);
-    });
 
     // cau hoi
     Route::group(['prefix' => 'questions'], function (){
@@ -158,8 +125,8 @@ Route::group(['prefix' => '/admins','middleware' => 'admins'], function() {
         Route::post('/loadPost','Admin\QuestionsController@loadPost')->name('admin.questions.loadpost');
     });
 });
-Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+//Auth::routes();
+Route::get('/home', 'Frontend\HomeController@index')->name('home');
 
 /**
  *  auth admin 
@@ -177,11 +144,17 @@ Route::group(['prefix' =>'authenticate'], function() {
  */
 
 Route::get('/','Frontend\HomeController@index')->name('home');
+Route::get('/v2','Frontend\HomeController@indexV2')->name('home.v2');
 
 Route::get('/dang-nhap','Auth\LoginController@getLogin')->name('get.dangky.user');
 Route::post('/dang-nhap','Auth\LoginController@postLogin')->name('post_login');
-Route::get('/logout','Auth\LoginController@logout')->name('logout_user');
 
+Route::get('/logout','Auth\LoginController@logout')->name('logout_user');
+Route::get('/quen-mat-khau','Auth\LoginController@forgotPassword')->name('get.forgot_password');
+Route::post('/quen-mat-khau','Auth\LoginController@postForgotPassword');
+
+Route::get('change-pass','Auth\LoginController@changePass')->name('get.change_password');
+Route::post('change-pass','Auth\LoginController@saveChangePass');
 
 Route::get('/dang-ky','Auth\RegisterController@getRegister')->name('dangky.user');
 Route::post('/dang-ky','Auth\RegisterController@postRegister')->name('postRegister');
@@ -208,13 +181,28 @@ Route::group(['prefix' => 'bai-viet','middleware' => 'web'],function(){
 
 
 Route::get('/lam-bai-thi','Frontend\ExamsController@index')->name('indexbaithi');
+Route::get('quiz/{categoryID}','Frontend\ExamsController@getQuiz')->name('get.quiz');
+Route::get('quiz/create/{categoryID}','Frontend\ExamsController@postQuiz')->name('post.quiz');
 Route::post('/lam-bai-thi','Frontend\ExamsController@createExams')->name('taodethi');
+
+Route::get('/lam-bai-quiz','Frontend\ExamsController@getListQuiz')->name('get.quiz.list.view');
+Route::get('/lam-bai-quiz/{categoryID}','Frontend\ExamsController@getListQuizByCategory')->name('get.quiz.list.view.by_category');
 
 Route::get('/thong-tin/{id}-{slug}','Frontend\PostsDetailController@thongtin')->name('thongtin');
 // lam bai thi
 Route::group(['prefix' => 'exams','middleware' => 'checkLoginUser'],function(){
-    Route::get('/vao-thi/{iduser}/{idde}','Frontend\ExamsController@startExams')->name('vaothi');
-    Route::post('/vao-thi/{iduser}/{idde}','Frontend\ExamsController@saveExams')->name('saveDapan');
+    Route::get('/vao-thi/{iduser}/{idde}/{categoryID}','Frontend\ExamsController@startExams')->name('vaothi');
+    Route::post('/vao-thi/{iduser}/{idde}/{categoryID}','Frontend\ExamsController@saveExams')->name('saveDapan');
+    Route::get('/kq/{iduser}/{idde}/{categoryID}','Frontend\ExamsController@kqExams')->name('get.kq.quiz');
+    Route::get('list-kq','Frontend\ExamsController@listKQ')->name('get.kq.list');
+    Route::get('chi-tiet-kq/{id}','Frontend\ExamsController@listKQQuiz')->name('get.kq.list.item');
+});
+
+Route::group(['middleware' => 'checkLoginUser'],function(){
+    Route::get('thong-tin-ca-nhan','User\ProfileController@index')->name('get.profile');
+    Route::post('thong-tin-ca-nhan','User\ProfileController@updateProfile');
+    Route::get('cap-nhat-mat-khau','User\ProfileController@getPassword')->name('get.password');
+    Route::post('cap-nhat-mat-khau','User\ProfileController@savePassword');
 });
 
 // search
