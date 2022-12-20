@@ -117,16 +117,16 @@
             <div class="row">
                 <form action="" method="POST" style="width: 50%; margin: 0 auto" autocomplete="off">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Mật khẩu mới</label>
-                        <input style="height: 50px;"  name="password" required  type="password" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                               placeholder="Nhập mật khẩu mới">
 
-                    </div>
                     <div class="form-group">
                         <label for="exampleInputEmail1">Mã xác nhận</label>
-                        <input style="height: 50px;"  name="code" required  type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        <input style="height: 50px;"  name="code" required  type="text" class="form-control"  aria-describedby="emailHelp"
                                placeholder="code">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Mật khẩu mới</label>
+                        <input style="height: 50px;"  name="password" required  type="password" class="form-control"  aria-describedby="emailHelp"
+                               placeholder="Nhập mật khẩu mới">
 
                     </div>
                     <button style="width: 100%;height: 50px;border-radius: 30px;" type="submit" class="btn btn-primary">Cập nhật</button>

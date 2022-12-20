@@ -11,7 +11,7 @@
 <div class="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="header-logo" style="margin-left:30px">
-            <a href="/"><img  style="width:95px" src="{{ asset('logo3.jpg') }}" alt=""></a>
+            <a href="/"><img  style="width:95px" src="{{ asset('logo_home.jpg') }}" alt=""></a>
         </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

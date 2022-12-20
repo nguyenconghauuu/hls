@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,40 +10,46 @@
     <title>FormLogin</title>
 </head>
 <style>
-    .img-logo{
+    .img-logo {
         width: 8%;
     }
-    .body{
+
+    .body {
         margin: auto;
 
     }
-    .form-login{
+
+    .form-login {
         width: 400px;
         height: auto;
         margin: auto;
     }
-    .login{
+
+    .login {
         padding: 30px;
     }
 
-    .lostpassword{
+    .lostpassword {
         margin-top: 20px;
         text-align: center;
     }
-    .register{
+
+    .register {
         display: flex;
         flex-direction: row;
     }
-    .register{
+
+    .register {
         margin-top: 10px;
         margin-left: 40px;
     }
 </style>
 
 <body>
-    <a href="/"><img  style="width:120px" src="{{ asset('4.jpg') }}" alt=""></a>
+<a href="/"><img style="width:120px;" src="{{ asset('logo_account.jpg') }}" alt=""></a>
 <div class="form-login border rounded shadow p-3 mb-5 bg-white rounded" style="margin-top:50px;">
-    <h3 style="padding:20px 0px 0px 30px ;">Đăng nhập</h3>
+
+    <h3 style="padding:20px 0px 0px 30px ; text-align: center">Đăng nhập</h3>
     @if(session('message'))
         <p style="color: red;text-align: center">{{session('message')}}</p>
     @endif
@@ -52,7 +57,8 @@
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
-            <input style="height: 50px;" name="u_email"  type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            <input style="height: 50px;" name="u_email" type="email" class="form-control" id="exampleInputEmail1"
+                   aria-describedby="emailHelp"
                    placeholder="Nhập email">
             @if ($errors->has('u_email'))
                 <span class="help-block">
@@ -62,15 +68,17 @@
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Mật khẩu</label>
-            <input style="height: 50px;" name="u_password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Nhập mật khẩu">
+            <input style="height: 50px;" name="u_password" type="password" class="form-control"
+                   id="exampleInputPassword1" placeholder="Nhập mật khẩu">
             @if ($errors->has('u_password'))
                 <span class="help-block">
                     <strong>{{ $errors->first('u_password') }}</strong>
                 </span>
             @endif
         </div>
-        <button style="width: 100%;height: 50px;border-radius: 30px;" type="submit" class="btn btn-primary">Đăng nhập</button>
-        <div  class="register">
+        <button style="width: 100%;height: 50px;border-radius: 30px;" type="submit" class="btn btn-primary">Đăng nhập
+        </button>
+        <div class="register">
             <p>Bạn cần một tài khoản ? </p><a href="{{ route('dangky.user') }}">Đăng ký</a>
         </div>
         <p><a href="{{ route('get.forgot_password') }}">Quên mật khẩu</a>

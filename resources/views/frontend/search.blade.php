@@ -198,17 +198,6 @@
         @endforeach
     </div>
 </div>
-<div class="contianer2">
-    <div class="d-flex flex-wrap">
-        @foreach($categoryLevel1 as $item)
-            <a href="/danh-muc/{{ $item->cpo_slug }}/{{ $item->id }}">
-                <div class="item" style="width: 200px;height:150px;background-color:aqua">
-                    <h2>{{ $item->cpo_name }}</h2>
-                </div>
-            </a>
-        @endforeach
-    </div>
-</div>
 <div class="footer" style="padding: 20px ; width: 100%;
     height: auto;
     display: flex;
