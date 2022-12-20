@@ -51,7 +51,6 @@
                                 <th rowspan="2" class="hg"> Email </th>
                                 <th rowspan="2" class="hg"> Tuổi </th>
                                 <th rowspan="2" class="hg">Trang Thái </th>
-                                <th colspan="2" style="border:1px solid #f4f4f4;text-align: center;">Action</th>
                             </tr>
                             <tr >
                                 <th style="text-align: center;">Edit</th>
@@ -72,9 +71,6 @@
                                     </td>
                                     <td class="text-center">
                                         {!! renderBtnEdit(route('admin.users.edit',$item->id)) !!}
-                                    </td>
-                                    <td class="text-center">
-                                         {!! renderBtnDelete(route('admin.users.delete',$item->id)) !!}
                                     </td>
                                 </tr>
                            @endforeach

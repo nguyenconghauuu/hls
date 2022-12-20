@@ -73,19 +73,12 @@
                             <th rowspan="2" class="hg">Stt</th>
                             <th rowspan="2" class="hg">Bài học</th>
                             <th rowspan="2" class="hg"> Điểm </th>
-                            
-                        </tr>
-                        <tr >
-                            <th style="text-align: center;padding-top:25px">Action</th>
                         </tr>
                         @foreach($diem as $item)
                             <tr>
                                 <td>{{  $item->id }}</th>
                                 <td>{{ $item->cpo_name }}</td>
                                 <td>{{ $item->er_point }} / 20 điểm </td>
-                                <td class="text-center">
-                                    {!! renderBtnDelete(route('admin.users.delete',$item->id)) !!}
-                                </td>
                             </tr>
                         @endforeach
                         </tbody>
