@@ -66,7 +66,8 @@ class RegisterController extends Controller
         {
             dump(" Error Create User : " .$e->getMessage());
         }
-        return redirect('/')->with('success',' Đăng ký thành công mời bạn đăng nhập  !!! ');
+
+        return redirect()->route('get.dangky.user')->with('message',' Đăng ký thành công mời bạn đăng nhập  !!! ');
 
     }
     protected function rule()

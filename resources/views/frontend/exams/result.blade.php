@@ -69,24 +69,7 @@
         margin: auto;
     }
     /*  */
-    .footer {
-        display: flex;
-        margin-left: 20px;
-        padding:20px 0px 0px 20px;
-        width: 100%;
-        background-color: whitesmoke;
-        height: 200px;
-    }
-    .logo-footer{
-        width: 30%;
-    }
-    .content-footer{
-        width:50% ;
-    }
-    .icon-footer {
-        display: flex;
-        width: 15%;
-    }
+    
     .list-cate-sidebar .active {
         color: #28a745;
     }
@@ -149,12 +132,12 @@
 <div class="main">
     <div class="slide-content">
         @if (isset($categoyParent) && $categoyParent)
-            <div style="text-align:center" class="shadow-none p-3 mb-5 bg-light rounded">{{ $categoyParent->cpo_name }}</div>
+            <div style="text-align:center;background-color:#28a745;color:white" class="shadow-none p-3 mb-5  rounded">{{ $categoyParent->cpo_name }}</div>
         @else
-            <div style="text-align:center" class="shadow-none p-3 mb-5 bg-light rounded">{{ $category->cpo_name ?? "" }}</div>
+            <div style="text-align:center;background-color:#28a745;color:white" class="shadow-none p-3 mb-5  rounded">{{ $category->cpo_name ?? "" }}</div>
         @endif
 
-        <div style="text-align:center; margin-top: -40px;" class="collapse show shadow p-3 mb-5 bg-white rounded" >
+        <div style="text-align:left; margin-top: -40px;" class="collapse show shadow p-3 mb-5 bg-white rounded" >
             <div class="card-body list-cate-sidebar">
                 @foreach($CategoryChildrens as $key => $childrenCate)
                     <a class="{{ $childrenCate->id == $id ? 'active' : '' }}" href="/danh-muc/{{ $childrenCate->cpo_slug }}/{{ $childrenCate->id }}">{{ $childrenCate->cpo_name }}</a>

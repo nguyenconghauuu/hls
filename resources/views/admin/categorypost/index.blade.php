@@ -4,11 +4,7 @@
     <section class="content-header">
         <h1>
             Danh sách danh mục bài viết         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">News (modules)</a></li>
-            <li class="active">Categorys</li>
-        </ol>
+        
     </section>
     <!-- Main content -->
     <section class="content">
@@ -21,7 +17,7 @@
                 <form action="" method="get" class="form-inline">
                     <input type="text" class="form-control"  placeholder=" Tên bài  viết tìm kiếm " autocomplete="off" name="title"  value="{{ Request::get('title') }}" style="width: 80%;margin:5px 0"/>
                     <div class="" style="margin-top: 5px;display: inline-block">
-                        <button type="submit" class="btn btn-xs btn-danger"><i class="fa fa-search"></i> Tìm kiếm </button>
+                        <button type="submit" class="btn btn-xs btn-success"><i class="fa fa-search"></i> Tìm kiếm </button>
                     </div>
                 </form>
             </div>

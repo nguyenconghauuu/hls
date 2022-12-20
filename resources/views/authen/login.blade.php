@@ -21,25 +21,25 @@
     </style>
     <!-- Google Font -->
 </head>
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" >
 <div class="login-box">
     <div class="login-logo">
-        <a href="/"><b>Admin</b></a>
+        <a href="/"><b>ĐĂNG NHẬP</b></a>
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg" style="color: red;">Đăng nhập để bắt đầu phiên làm việc</p>
+        <p class="login-box-msg" style="color: red;">Xin chào Admin</p>
         <form action="" method="post">
             {{ csrf_field() }}
             <div class="form-group has-feedback">
-                <input type="email" class="form-control" name="email" placeholder="admin@gmail.com" autocomplete="off" value="namnguyen@gmail.com">
+                <input type="email" class="form-control" name="email" placeholder="Nhập email" autocomplete="off" value="">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                 @if($errors->first('email'))
                     <span class="text-danger">{{ $errors->first('email') }}</span>
                 @endif
             </div>
             <div class="form-group has-feedback">
-                <input type="password" class="form-control" name="password" placeholder="********" autocomplete="off" value="123456789">
+                <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu" autocomplete="off" value="">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 @if($errors->first('password'))
                     <span class="text-danger">{{ $errors->first('password') }}</span>
@@ -55,20 +55,14 @@
                 {{--</div>--}}
                 <!-- /.col -->
                 <div class="col-xs-12">
-                    <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-flat">Đăng nhập</button>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
-        <div class="social-auth-links text-center">
-            <p>- OR -</p>
-            <!-- <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
-                Facebook</a> -->
-            <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
-                Gmail</a>
-        </div>
+       
         <!-- /.social-auth-links -->
-        <a href="" class="pull-left"> Quên mật khẩu </a>
+       
 {{--        <a href="" class="text-center pull-right"> Đăng ký mới </a>--}}
         <div class="clearfix"></div>
     </div>

@@ -6,10 +6,7 @@
         <h1>
             Danh sách thành viên
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Thành viên </li>
-        </ol>
+        
     </section>
     <!-- Main content -->
     <section class="content">
@@ -18,30 +15,9 @@
             
             <div   style="margin-bottom: 10px;padding:0 10px">
                 <form action="" method="get" class="form-inline">
-                    <input type="text" class="form-control"  placeholder=" Tìm kiếm theo tên / email  / Địa chỉ  " name="keyword"  value="{{ Request::get('keyword') }}" style="width: 100%;margin:5px 0"/>
-                    <label class="radio-box">Hiển thị
-                        <input type="radio"  name="u_active" value="1" {{ Request::get('u_active') == 1 ? "checked=''" : "" }}>
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="radio-box"> Không hiển thị
-                        <input type="radio" name="u_active" value="2" {{ Request::get('u_active') == 2 ? "checked=''" : "" }}>
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="radio-box"> Đang online
-                        <input type="radio" name="u_online" value="1" {{ Request::get('u_online') == 1 ? "checked=''" : "" }}>
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="radio-box"> Offline
-                        <input type="radio" name="u_online" value="2" {{ Request::get('u_online') == 2 ? "checked=''" : "" }}>
-                        <span class="checkmark"></span>
-                    </label>
-                    <select name="paginate" id="" class="form-control" style="width:15%;margin-left: 10px;">
-                        <option value="">--  Số bản ghi hiển thị  --</option>
-                        <option value="5" {{ Request::get('paginate') == 5 ? "selected='selected'" : "" }}>5</option>
-                        <option value="10" {{ Request::get('paginate') == 10 ? "selected='selected'" : "" }}>10</option>
-                        <option value="20" {{ Request::get('paginate') == 20 ? "selected='selected'" : "" }}>20</option>
-                        <option value="100" {{ Request::get('paginate') == 100 ? "selected='selected'" : "" }}>100</option>
-                    </select>
+                    <input type="text" class="form-control"  placeholder=" Tìm kiếm theo tên / email   " name="keyword"  value="{{ Request::get('keyword') }}" style="width: 100%;margin:5px 0"/>
+                   
+                    
                     <div class="input-group date" data-provide="datepicker">
                         <input type="date" class="form-control" name="date" data-date-format="Y-m-d" placeholder="Lọc theo ngày " style="width: 175px" value="{{  Request::get('date') }}">
                          <div class="input-group-addon">
@@ -70,9 +46,10 @@
                         <tbody>
                             
                              <tr>
-                                <th rowspan="2" class="hg">Stt</th>
+                                <th rowspan="2" class="hg">ID</th>
                                 <th rowspan="2" class="hg">Họ Tên</th>
-                                <th rowspan="2" class="hg"> Thông Tin </th>
+                                <th rowspan="2" class="hg"> Email </th>
+                                <th rowspan="2" class="hg"> Tuổi </th>
                                 <th rowspan="2" class="hg">Trang Thái </th>
                                 <th colspan="2" style="border:1px solid #f4f4f4;text-align: center;">Action</th>
                             </tr>
@@ -85,21 +62,12 @@
                                     <td>{{  $item->id }}</th>
                                     <td>{{ $item->u_name }}</td>
                                     <td>
-                                        <span style="display: inline-block;width: 20%;font-weight: bold">Email</span> <span> {{ $item->u_email }}</span>
+                                         <span> {{ $item->u_email }}</span>
                                     </td>
                                     <td>
-
-                                        @if($item->u_online == 1)
-                                            <span class="label label-success"> Online </span>
-                                        @else
-                                            <span class="label label-default"> Offline </span>
-                                        @endif
-                                        @if($item->u_active == 1)
-                                         <a href="{{ route('admin.users.active',$item->id) }}" class="btn btn-xs btn-info"> Đang hoạt động </a>
-                                        @else
-                                             <a href="{{ route('admin.users.active',$item->id) }}" class="btn btn-xs btn-danger"> Ngừng Hoạt Động </a>
-                                        @endif
-
+                                        <span> {{ $item->u_age == 0  ? "Chưa cập nhật" :  $item->u_age }}</span>
+                                    </td>
+                                    <td>
                                             <a href="{{ route('admin.users.viewdiem',$item->id) }}" class="btn btn-xs btn-success">  Xem điểm thi</a>
                                     </td>
                                     <td class="text-center">

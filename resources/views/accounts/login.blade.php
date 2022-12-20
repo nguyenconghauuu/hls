@@ -42,7 +42,7 @@
 </style>
 
 <body>
-<img class="img-logo" src="hls.jpg" alt="">
+    <a href="/"><img  style="width:120px" src="{{ asset('4.jpg') }}" alt=""></a>
 <div class="form-login border rounded shadow p-3 mb-5 bg-white rounded" style="margin-top:50px;">
     <h3 style="padding:20px 0px 0px 30px ;">Đăng nhập</h3>
     @if(session('message'))

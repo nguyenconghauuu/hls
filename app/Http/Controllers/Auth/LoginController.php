@@ -110,11 +110,10 @@ class LoginController extends FrontendController
 
             \Mail::send('email.change_pass', $data, function ($m) use ($user) {
                 $m->from('hello@app.com', 'homelearningsoftware');
-                $m->to($user->u_email, $user->u_name)->subject('Change Password!');
+                $m->to($user->u_email, $user->u_name)->subject('Quên mật khẩu!');
             });
 
             return redirect()->route('get.change_password')->with('message','Mã xác nhận đã gủi tới email của bạn');
-//            return redirect()->back()->with('message','Mã xác nhận đã gủi tới email của bạn');
         }
     }
 

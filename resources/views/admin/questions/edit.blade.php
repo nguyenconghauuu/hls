@@ -66,19 +66,6 @@
                                     </div>
 
                                 </div>
-
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label"> Bài học </label>
-                                    <div class="col-sm-10">
-                                        <select class="form-control" name="qs_post_id" id="post_id">
-                                            <option value=""> - Danh sách bài học   - </option>
-                                            @foreach($posts as $post)
-                                                <option value="{{ $post->id }}" {{ $question->qs_post_id == $post->id ? "selected = 'selected'" : "" }}>{{ $post->po_title }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-
-                                </div>
                                 <div class="form-group">
                                     <label for="inputEmail3" class="col-sm-2 control-label" style="margin-bottom: 10px;"> Giợi ý  </label>
                                     <div class="col-sm-10" style="margin-right: 0;margin-left: 0">

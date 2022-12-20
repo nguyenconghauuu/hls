@@ -51,14 +51,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-2 control-label"> Kiểu danh mục </label>
-                                <div class="col-sm-10">
-                                    <select class="form-control" name="cpo_type">
-                                        <option value="1"> Kiểu 1 </option>
-                                        <option value="2"> Kiểu 2 </option>
-                                        <option value="3"> Kiểu 3 </option>
-                                    </select>
-                                </div>
                             </div>
                             <div class="form-group" style="margin:5px 0">
                                 <label for="inputEmail3" class="col-sm-12 control-label" style="text-align: left;margin-bottom: 10px;padding-right: 30px;padding-left: 30px;"> Nội dung </label>

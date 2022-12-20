@@ -10,11 +10,7 @@
         <h1>
             Danh sách câu hỏi
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">News (modules)</a></li>
-            <li class="active">Questions</li>
-        </ol>
+        
     </section>
     <!-- Main content -->
     <section class="content">
@@ -24,22 +20,8 @@
 
                 <form action="" method="get" class="form-inline">
                     <input type="text" class="form-control"  placeholder=" Nhập tên câu hỏi tìm kiếm " name="title"  value="{{ Request::get('title') }}" style="width: 100%;margin:5px 0"/>
-                    <select name="categorypost" id="category_post_id" class="form-control" style="width:20%;">
-                        <option value="">--  Tìm theo danh mục  --</option>
-                        @if(count($sortCategoryPost) > 0)
-                            @foreach($sortCategoryPost as $item)
-                                <option value="{{ $item->id }}" {{ Request::get('categorypost') == $item->id ? "selected = 'selected' ": "" }} ><?php for($i = 0; $i < $item->level; $i ++) echo '|--'; ?>{{ $item->cpo_name }}</option>
-                            @endforeach
-                        @endif
-                    </select>
-
-                    <div class="input-group date" data-provide="datepicker">
-
-                        <div class="input-group-addon">
-                            <span class="glyphicon glyphicon-th"></span>
-                        </div>
-                        <input type="text" class="form-control" data-date-format="Y-m-d" placeholder="Lọc thời gian">
-                    </div>
+                    
+                    
                     <div class="" style="margin-top: 5px;display: inline-block">
                         <button type="submit" class="btn btn-xs btn-success"><i class="fa fa-search"></i> Tìm kiếm </button>
                         <a href="{{ route('admin.questions.index') }}" class="btn btn-xs btn-danger"><i class="fa fa-refresh"></i> Làm mới </a>
@@ -57,7 +39,7 @@
                         <tbody>
                         <tr class="bg-tr">
                             <th>ID</th>
-                            <th style="width: 20%">Name</th>
+                            <th style="width: 20%">Câu hỏi</th>
                             <th style="width: 40%">Câu trả lời && đáp án </th>
                             <td> Thông tin </td>
                             <th>Action</th>
