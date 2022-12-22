@@ -18,20 +18,7 @@
                     <div class="box box-primary">
                         <form class="form-horizontal" action="" method="post" enctype="multipart/form-data" disabled="">
                             <div class="box-body">
-                                <div class="col-sm-4">
-                                    <div class="form-group">
-                                        <label for="inputEmail3" class="col-sm-2 control-label"> Avatar   </label>
-                                        <div class="col-sm-10">
-                                            <input type="file" class="form-control" name="u_avatar" id="imgInp">
-                                            @if($errors->first('u_avatar'))
-                                                <span class="text-danger">{{ $errors->first('u_avatar') }}</span>
-                                            @endif
-                                        </div>
-                                        <div class="col-sm-10" style="margin-top: 10px;margin-left: 17%">
-                                            <img src="/uploads/users/{{ isset($user->u_avatar ) ?  $user->u_avatar : '' }}" alt="" class="img img-responsive" id="blah" title=" Logo " style="width: 100%;height: 258px;border: 1px solid #dedede">
-                                        </div>
-                                    </div>
-                                </div>
+                               
                                 <div class="col-sm-8">
                                    
                                     <div class="form-group">

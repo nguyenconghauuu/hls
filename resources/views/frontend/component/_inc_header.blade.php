@@ -3,9 +3,26 @@
     body {
         font-family: 'Roboto', sans-serif;
     }
+    li a:hover:not(.avtive){
+        background-color: #d9eee1;
+        
+    }
+    li a.active {
+        color: white;
+        background-color: #d9eee1;
+    }
+    
     .item a{
         text-decoration: none;
         color: black;
+    }
+    a:hover{
+        color: #FF4500;
+        text-decoration: none;
+    }
+
+    .navbar-nav{
+        font-weight: 700;
     }
 </style>
 <div class="header">
@@ -18,8 +35,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div  class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto" style="margin:  0 auto;justify-content: space-between">
+        <div  class=" collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="active navbar-nav mr-auto" style="margin: 0 auto;justify-content: space-between; font-size:18px" >
                 
                 @foreach($categoryLevel1 as $key => $cateLevel1)
                     @if ($key == 4)
@@ -32,7 +49,7 @@
                             $child = \App\CategoryPosts::where('cpo_parent_id',$cateLevel1->id)->get();
                         @endphp
                         @if (!$child->isEmpty())
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="background-color:#d9eee1;font-size:18px">
                                 @foreach($child ?? [] as $item)
                                         <?php $arrChild[] = $item ?>
                                     <a class="dropdown-item"
@@ -48,7 +65,7 @@
                 <form class="form-inline my-2 my-lg-0" action="{{ route('searchTypehead') }}" style="margin:0px 20px 0 0 ;">
                     <input class="form-control mr-sm-2" style="width:300px" type="search" name="k" placeholder="Tu khoa: html ,css..."
                            aria-label="Search" value="{{ Request::get('k') }}">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Tìm kiếm</button>
+                    <button style = "" class="btn btn-outline-danger my-2 my-sm-0" type="submit"><svg style="width:40px;height:20px ;color:white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></button>
                 </form>
                 @if(Auth::guard('web')->check())
                     <li class="dropdown">

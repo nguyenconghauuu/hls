@@ -33,8 +33,10 @@
                                             <option value="0"> - ROOT - </option>
                                             @if($sortCategory && count($sortCategory) > 0)
                                                 @foreach($sortCategory as $item)
+                                                @if($item->cpo_parent_id==0)
                                                     <option value="{{ $item->id }}"><?php for($i = 0; $i < $item->level; $i ++) echo '|--'; ?>{{ $item->cpo_name }}</option>
-                                                @endforeach
+                                                @endif
+                                                    @endforeach
                                             @endif
                                         </select>
                                     </div>

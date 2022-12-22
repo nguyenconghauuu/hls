@@ -23,19 +23,19 @@ class CategoryPostRequest extends FormRequest
      * @return array
      */
 
-     public function rules(Request $request)
+    public function rules(Request $request)
     {
-        
+
         return [
-            'cpo_name'        => 'required'
+            'cpo_name' => 'required|unique:categoryposts,cpo_name,' . $this->id,
         ];
     }
-  
+
     public function messages()
     {
         return [
-            'cpo_name.required'        => ' Mời bạn nhập tên danh mục ',
-            // 'name.unique'          => ' Tên danh mục đã tồn tại'
+            'cpo_name.required' => ' Mời bạn nhập tên danh mục ',
+            'cpo_name.unique'   => ' Tên danh mục đã tồn tại'
         ];
     }
 }

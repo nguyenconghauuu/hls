@@ -53,13 +53,13 @@
     .container {
         display: flex;
         width: 100%;
-        height: 1000px;
+        height: auto;
         margin-top: 20px;
     }
 
     .content {
         width: 100%;
-        height: 200px;
+        height: auto;
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -103,30 +103,7 @@
     .title-new { text-transform: uppercase;font-size: 20px; text-align: center ;  border-bottom: 1px solid #dfdfdf;padding-bottom: 10px;}
     .title-footer { font-size: 20px;text-transform: uppercase;border-bottom: 2px solid #72c02c;padding-bottom: 15px;width: 90%}
 </style>
-<script>
-    var count = 1800;
-    function countDown(){
-        var timer = document.getElementById("timer");
-        if(count > 0){
-            count--;
-            timer.innerHTML = " <i class=\"fa fa-clock-o\" aria-hidden=\"true\"></i>  <b>"+secondsToHms(count)+"</b> giây ";
-            setTimeout("countDown()", 1000);
-        }else{
-            document.getElementById("myForm").submit();
-        }
-    }
-    function secondsToHms(d) {
-        d = Number(d);
-        var h = Math.floor(d / 3600);
-        var m = Math.floor(d % 3600 / 60);
-        var s = Math.floor(d % 3600 % 60);
 
-        var hDisplay = h > 0 ? h + (h == 1 ? " giờ - " : " giờ ") : "";
-        var mDisplay = m > 0 ? m + (m == 1 ? " phút " : " phút ") : "";
-        var sDisplay = s > 0 ? s + (s == 1 ? " giây " : " ") : "";
-        return hDisplay + mDisplay + sDisplay;
-    }
-</script>
 <body>
 @include('frontend.component._inc_header')
 <div class="main" style="">
@@ -138,10 +115,8 @@
                 <table class="table table-striped shadow p-3 mb-5 bg-white" >
                     <thead>
                     <tr>
-                        <th>Số thứ tự</th>
                         <th>Họ và tên</th>
                         <th>Bài học</th>
-                        <th>Tổng câu</th>
                         <th>Câu đúng</th>
                         <th>Câu sai</th>
                         <th>Câu đã làm</th>
@@ -152,10 +127,8 @@
                     </thead>
                     @foreach($lists as $item)
                         <tr>
-                            <td>{{ $item->er_exam_id }}</td>
                             <td>{{ $item->user->u_name ?? "[N\A]" }}</td>
                             <td>{{ $item->category->cpo_name ?? "[N\A]" }}</td>
-                            <td>{{ $item->exams_users_count ?? 0 }}</td>
                             <td>{{ $item->correct }}</td>
                             <td>{{ $item->wrong }}</td>
                             <td>{{ $item->did }}</td>

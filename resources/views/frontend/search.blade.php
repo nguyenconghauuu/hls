@@ -84,14 +84,19 @@
     .content-main {
         width: 80%;
         height: auto;
+        
     }
 
     .container-main {
         width: 100%;
         height: 250px;
         margin-bottom: 20px;
-        background-color: #8eeca1;
+        background-color: #d9eee1;
         padding-top: 1px;
+        border: 2px;
+        border-radius:20px 0px 0px 20px;
+        overflow: hidden;
+         text-overflow: ellipsis;
     }
 
     .container-main h2 {
@@ -101,16 +106,20 @@
     .main-text {
         width: 95%;
         height: 150px;
-        background-color:#a1fbb3;
+        background-color:white;
         margin: 0px 0px 0px 2.5%;
+        border-radius: 20px 20px 20px 20px;
+        padding: 10px;
     }
-
+    .main-text a{
+       
+    }
     .content-button {
 
         width: 10%;
         height: 500px;
+        
     }
-
     .content-btn-click {
         width: 100%;
         height: 250px;

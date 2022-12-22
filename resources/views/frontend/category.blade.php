@@ -53,13 +53,13 @@
     .container {
         display: flex;
         width: 80%;
-        height: 1000px;
+        height: auto;
         margin-top: 20px;
     }
 
     .content {
         width: 80%;
-        height: 200px;
+        height: auto;
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -84,6 +84,10 @@
     .list-cate-sidebar .active {
         color: #28a745;
     }
+
+    .btn {
+        background-color: #04aa6d;
+    }
 </style>
 
 <body>
@@ -91,9 +95,9 @@
 <div class="main">
     <div class="slide-content">
         @if (isset($categoyParent) && $categoyParent)
-            <div style="text-align:center; background-color:#28a745;color:white" class="shadow-none p-3 mb-5  rounded">{{ $categoyParent->cpo_name }}</div>
+            <div style="text-align:center; background-color: #04aa6d; color:white" class="shadow-none p-3 mb-5  rounded">{{ $categoyParent->cpo_name }}</div>
         @else
-            <div style="text-align:center;background-color:#28a745;color:white" class="shadow-none p-3 mb-5  rounded">{{ $category->cpo_name }}</div>
+            <div style="text-align:center; background-color: #04aa6d; color:white" class="shadow-none p-3 mb-5  rounded">{{ $category->cpo_name }}</div>
         @endif
 
         <div style="text-align:left; margin-top: -40px;" class="collapse show shadow p-3 mb-5 bg-white rounded" >

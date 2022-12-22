@@ -53,13 +53,13 @@
     .container {
         display: flex;
         width: 100%;
-        height: 1000px;
+        height: auto;
         margin-top: 20px;
     }
 
     .content {
         width: 90%;
-        height: 200px;
+        height: auto;
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -104,7 +104,7 @@
     .title-footer { font-size: 20px;text-transform: uppercase;border-bottom: 2px solid #72c02c;padding-bottom: 15px;width: 90%}
 </style>
 <script>
-    var count = 1800;
+    var count = 3600;
     function countDown(){
         var timer = document.getElementById("timer");
         if(count > 0){

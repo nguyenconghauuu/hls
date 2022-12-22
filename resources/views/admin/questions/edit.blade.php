@@ -43,8 +43,9 @@
                                             <span class="text-danger">{{ $errors->first('qs_thunbar') }}</span>
                                         @endif
                                     </div>
+
                                     <div class="col-sm-10" style="margin-top: 10px;margin-left: 17%">
-                                        <img src="" alt="" class="img img-responsive" id="blah" title=" Logo " style="width: 100%;height: 258px;border: 1px solid #dedede">
+                                        <img src="/uploads/questions/{{ $question->qs_thunbar }}" alt="" class="img img-responsive" id="blah" title=" Logo " style="width: 100%;height: 258px;border: 1px solid #dedede">
                                     </div>
                                 </div>
                             </div>

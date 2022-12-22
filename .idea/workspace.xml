@@ -6,7 +6,28 @@
   <component name="ChangeListManager">
     <list default="true" id="61f22db6-1e00-4268-8f54-defcede236b6" name="Default Changelist" comment="new readme.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/CategoryPostRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/CategoryPostRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo_account.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo_account.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo_home.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/public/logo_home.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/categorypost/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/categorypost/add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/questions/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/questions/add.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/questions/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/questions/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/add.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/ket-qua-thi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/ket-qua-thi.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/users/update.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/users/update.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/category.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/component/_inc_header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/component/_inc_header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/detail-post.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/detail-post.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/exams/kq.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/exams/kq.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/exams/list_kq.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/exams/list_kq.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/exams/list_kq_item.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/exams/list_kq_item.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/exams/quiz.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/exams/quiz.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/exams/result.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/exams/result.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/exams/start_baithi.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/exams/start_baithi.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/home.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/list_quiz.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/list_quiz.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/search.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/search.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +218,9 @@
       <workItem from="1671494462878" duration="5323000" />
       <workItem from="1671510315502" duration="610000" />
       <workItem from="1671511072651" duration="8288000" />
-      <workItem from="1671553381486" duration="2961000" />
+      <workItem from="1671553381486" duration="4219000" />
+      <workItem from="1671697164136" duration="1655000" />
+      <workItem from="1671716709578" duration="1394000" />
     </task>
     <task id="LOCAL-00001" summary="new readme.md">
       <created>1666015387205</created>
@@ -248,7 +271,28 @@
       <option name="project" value="LOCAL" />
       <updated>1671555410487</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="new readme.md">
+      <created>1671588874425</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1671588874425</updated>
+    </task>
+    <task id="LOCAL-00009" summary="new readme.md">
+      <created>1671697515698</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1671697515698</updated>
+    </task>
+    <task id="LOCAL-00010" summary="new readme.md">
+      <created>1671697608207</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1671697608207</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

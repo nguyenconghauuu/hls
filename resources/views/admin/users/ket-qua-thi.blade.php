@@ -6,10 +6,7 @@
         <h1>
             Xem điểm thi <b>{{ isset($diem) && count($diem) > 0 ? $diem[0]->u_name : '' }}</b>
         </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Thành viên </li>
-        </ol>
+       
     </section>
     <!-- Main content -->
     <section class="content">

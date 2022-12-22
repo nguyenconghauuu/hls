@@ -30,14 +30,18 @@
         width: 100%;
         height: auto;
         display: flex;
+        
     }
+
 
     .navbar {
         width: 100%;
+        
     }
 
     .collapse {
         margin-left: 0px;
+        
     }
 
 
@@ -50,6 +54,7 @@
         display: flex;
         padding: 0px 20px 0px 20px;
         padding-bottom: 50px;
+       
     }
 
     .nav-bar {
@@ -57,13 +62,16 @@
         padding-left: 10px;
         padding-right: 30px;
         height: auto;
+       
 
     }
     .nav-bar a{
         text-decoration: none;
         color: black;
         display: inline-block;
+        font-size:18px;
     }
+    
     .nav-bar-header {
         width: 100%;
         height: 50px;
@@ -89,12 +97,14 @@
 
     .container-main {
         width: 100%;
-        height: 250px;
+        height: 280px;
         margin-bottom: 20px;
-        background-color: #8eeca1;
+        background-color: #d9eee1;
         padding-top: 1px;
         border: 2px;
         border-radius:20px 0px 0px 20px;
+        overflow: hidden;
+         text-overflow: ellipsis;
     }
 
     .container-main h2 {
@@ -103,13 +113,25 @@
 
     .main-text {
         width: 95%;
-        height: 150px;
-        background-color:#a1fbb3;
+        height: 170px;
+        background-color:white;
         margin: 0px 0px 0px 2.5%;
         border-radius: 20px 20px 20px 20px;
-        padding: 10px;
+        padding: 10px 10px 0px 10px;
     }
-
+    .main-text a{
+        display: inline;
+        font-size: 13.5px;
+        text-decoration: none;
+        color: red;
+       
+    }
+    .main-text a:hover{
+        box-shadow: 0 1px rgb(10, 120, 65);
+    }
+    .link{
+       display:inline;
+    }
     .content-button {
 
         width: 10%;
@@ -119,8 +141,8 @@
 
     .content-btn-click {
         width: 100%;
-        height: 250px;
-        background-color: #a1fbb3;
+        height: 280px;
+        background-color: #d9eee1;
         margin-bottom: 20px;
         border: 2px;
         border-radius:0px 20px 20px 0px;
@@ -149,7 +171,12 @@
 
     }
 
+   
     
+
+    .content-btn-click a{
+        
+    }
     
     
 </style>
@@ -158,89 +185,99 @@
     @php
         $arrChild = [];
     @endphp
-    @include('frontend.component._inc_header')
-    <div class="container ">
-        <div class="nav-bar">
-            @foreach ($categoryLevel1 as $cateLevel1)
-                <p>
-                    <button style="width: 100%;height: 50px;" class="btn btn-success" type="button"
-                        data-toggle="collapse" data-target="#collapse{{ $cateLevel1->id }}" aria-expanded="false"
-                        aria-controls="collapse{{ $cateLevel1->id }}">{{ $cateLevel1->cpo_name }}
-                    </button>
+    <div>
+        <div style="position: fixed; top: 0px; width: 100%; z-index: 100;">
+            @include('frontend.component._inc_header')
+        </div>
+        <div class="container" style="min-height: 120vh; margin-top: 10px">
+            <div class="nav-bar">
+                <div  style="position: sticky; top: 120px">
+                    @foreach ($categoryLevel1 as $cateLevel1)
+                    <p>
+                        <button style="width: 100%;height: 50px;" class="btn btn-success" type="button"
+                            data-toggle="collapse" data-target="#collapse{{ $cateLevel1->id }}" aria-expanded="false"
+                            aria-controls="collapse{{ $cateLevel1->id }}">{{ $cateLevel1->cpo_name }}
+                        </button>
+                    </p>
+    
+                    @php
+                        $child = \App\CategoryPosts::where('cpo_parent_id', $cateLevel1->id)->get();
+                    @endphp
+                    @if (!$child->isEmpty())
+                        <div style="text-align:left ;" class="collapse shadow p-3 mb-5 bg-white rounded"
+                            id="collapse{{ $cateLevel1->id }}">
+                            <div class="card-body">
+                                @foreach ($child ?? [] as $item)
+                                    <a href="/danh-muc/{{ $item->cpo_slug }}/{{ $item->id }}">{{ $item->cpo_name }}</a>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
+                </div>
+               
+            </div>
+            <div class="content-main" style="margin-top: 120px">  
+                @foreach ($categoryLevel1 as $cateL1)
+                    <div class="container-main ">
+                        <h2>{{ $cateL1->cpo_name }}</h2>
+                        <div class="main-text ">
+                            <div
+                                style="    -webkit-line-clamp: 3;
+                                -webkit-box-orient: vertical;
+                                color: #333;
+                                display: -webkit-box;
+                                font-size: 14px;
+                                line-height: 24px;
+                                margin-bottom: 20px;
+                                overflow: hidden;
+                                padding-top:10px;
+                                text-overflow: ellipsis;">
+                                {!! $cateL1->cpo_content !!}
+                            </div>
+                            @php
+                                $child = \App\CategoryPosts::where('cpo_parent_id', $cateL1->id)->get();
+                                //
+                            @endphp
+                            @if (!$child->isEmpty())
+                                @foreach ($child ?? [] as $item)
+                                    <div class="link"><a style="" href="/danh-muc/{{ $item->cpo_slug }}/{{ $item->id }}">{{ $item->cpo_name }}</a></div>
+                                @endforeach
+                            @endif
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            <div class="content-button"  style="margin-top: 120px">
+                @foreach ($categoryLevel1 as $item)
+                    <div class="content-btn-click">
+                        <a href="/danh-muc/{{ $item->cpo_slug }}/{{ $item->id }}" style="margin-bottom:5px ;"
+                            class="btn btn-outline-success">Học bài</a>
+                        <a href="{{ route('post.quiz', $item->id) }}" class="btn btn-outline-danger">Làm bài</a>
+                    </div>
+                @endforeach
+            </div>
+          
+        </div>
+        <div class="footer" style="padding: 20px ; width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(2, 2, 2);
+        text-align: center;
+        color: white;">
+            <p> Homelearningsoftware được tối ưu hóa cho việc học tập. Các ví dụ có thể được đơn giản hóa để cải thiện khả
+                năng đọc và hiểu cơ bản. Các hướng dẫn, tài liệu tham khảo nhưng chúng tôi không thể đảm bảo tính chính xác
+                hoàn toàn của tất cả nội dung. Trong khi sử dụng trang web này, bạn đồng ý đã đọc và chấp nhận các điều
+                khoản sử dụng, cookie và chính sách bảo mật của chúng tôi.
                 </p>
-
-                @php
-                    $child = \App\CategoryPosts::where('cpo_parent_id', $cateLevel1->id)->get();
-                @endphp
-                @if (!$child->isEmpty())
-                    <div style="text-align:left ;" class="collapse shadow p-3 mb-5 bg-white rounded"
-                        id="collapse{{ $cateLevel1->id }}">
-                        <div class="card-body">
-                            @foreach ($child ?? [] as $item)
-                                <a href="/danh-muc/{{ $item->cpo_slug }}/{{ $item->id }}">{{ $item->cpo_name }}</a>
-                            @endforeach
-                        </div>
-                    </div>
-                @endif
-            @endforeach
-        </div>
-        <div class="content-main">
-            @foreach ($categoryLevel1 as $cateL1)
-                <div class="container-main">
-                    <h2>{{ $cateL1->cpo_name }}</h2>
-                    <div class="main-text">
-                        <div
-                            style="    -webkit-line-clamp: 3;
-                            -webkit-box-orient: vertical;
-                            color: #333;
-                            display: -webkit-box;
-                            font-size: 14px;
-                            line-height: 24px;
-                            margin-bottom: 20px;
-                            overflow: hidden;
-                            padding: 10px;
-                            text-overflow: ellipsis;">
-                            {!! $cateL1->cpo_content !!}
-                        </div>
-                        @php
-                            $child = \App\CategoryPosts::where('cpo_parent_id', $cateL1->id)->get();
-                            //
-                        @endphp
-                        @if (!$child->isEmpty())
-                            @foreach ($child ?? [] as $item)
-                                <a href="/danh-muc/{{ $item->cpo_slug }}/{{ $item->id }}">{{ $item->cpo_name }}</a>
-                            @endforeach
-                        @endif
-                    </div>
-                </div>
-            @endforeach
-        </div>
-        <div class="content-button">
-            @foreach ($categoryLevel1 as $item)
-                <div class="content-btn-click">
-                    <a href="/danh-muc/{{ $item->cpo_slug }}/{{ $item->id }}" style="margin-bottom:5px ;"
-                        class="btn btn-outline-success">Học bài</a>
-                    <a href="{{ route('post.quiz', $item->id) }}" class="btn btn-outline-success">Làm bài</a>
-                </div>
-            @endforeach
+                <p>Copyright by Nam & Hau</p>
         </div>
     </div>
+   
 
 
-    <div class="footer" style="padding: 20px ; width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(2, 2, 2);
-    text-align: center;
-    color: white;">
-        <p> Homelearningsoftware được tối ưu hóa cho việc học tập. Các ví dụ có thể được đơn giản hóa để cải thiện khả
-            năng đọc và hiểu cơ bản. Các hướng dẫn, tài liệu tham khảo nhưng chúng tôi không thể đảm bảo tính chính xác
-            hoàn toàn của tất cả nội dung. Trong khi sử dụng trang web này, bạn đồng ý đã đọc và chấp nhận các điều
-            khoản sử dụng, cookie và chính sách bảo mật của chúng tôi.
-            </p>
-            <p>Copyright by Nam & Hau</p>
-    </div>
+   
 </body>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">

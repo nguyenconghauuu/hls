@@ -53,13 +53,13 @@
     .container {
         display: flex;
         width: 100%;
-        height: 1000px;
+        height: auto;
         margin-top: 20px;
     }
 
     .content {
         width: 90%;
-        height: 200px;
+        height: auto;
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -175,6 +175,9 @@
                                     <div style="padding: 0 20px;background-color: white">
                                         <h4 style="display: inline-flex;font-weight: bold"> Câu {{  $key + 1 }} :  </h4>
                                         <p readonly='true' class="removeStyle" style="width: 100%;">{!! $item->qs_name  !!}</p>
+                                        @if ($item->qs_thunbar)
+                                            <img src="/uploads/questions/{{ $item->qs_thunbar }}" alt="" class="img img-responsive" id="blah" title=" Logo " style="width: 100%;height: 258px;border: 1px solid #dedede">
+                                        @endif
                                         <div class="form-group clearfix" style="margin-top:10px">
                                             <div class="col-sm-10 list-answer">
                                                 @if( $item->qs_answer1)

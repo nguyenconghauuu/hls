@@ -89,7 +89,7 @@
 
     .container-main {
         width: 100%;
-        height: 250px;
+        height: auto;
         margin-bottom: 20px;
         background-color: #f2f2f2;
         padding-top: 1px;
@@ -101,7 +101,7 @@
 
     .main-text {
         width: 95%;
-        height: 150px;
+        height: auto;
         background-color: white;
         margin: 0px 0px 0px 2.5%;
     }
@@ -140,10 +140,16 @@
         padding-top: 30px;
         border-radius: 20px;
         margin: 5px;
-
     }
 
-   
+    .btn{
+        background-color: #04aa6d;
+    }
+
+    .btn:hover {
+        background-color: #04aa6d;
+        opacity: 0.9;
+    }
 </style>
 
 <body>
@@ -175,13 +181,12 @@
             @endif
         @endforeach
     </div>
-    <div class="container shadow p-3 mb-5 bg-white rounded" style="background-image:url({{ asset('bg.jpg') }}); background-repeat-y: no-repeat;" >
-        <div class="content", style="padding-top:100px;text-align: center;color: white; margin: 0 auto" >
-            <h5>{{ $categoy->cpo_name ?? "Làm bài quiz" }}</h5>
+    <div class="container shadow p-3 mb-5 bg-white rounded" style="background-image:url({{ asset('bg.jpg') }}); background-size: cover;" >
+        <div class="content", style="padding-top:200px;text-align: center;color: white; margin: 0 auto" >
+            <h5>{{ $categoy->cpo_name??"Làm bài quiz"}}</h5>
             <p>Tổng cố câu hỏi : 20 câu</p>
-            <p>Thời gian làm bài : 120 phút</p>
             @if (isset($categoy))
-                <a href="{{ route('post.quiz', $categoy->id) }}" style="width:40%; margin:  0 auto" type="button" class="btn btn-success">Làm bài</a>
+                <a href="{{ route('post.quiz', $categoy->id) }}" style="width:50%; margin:  0 auto" type="button" class="btn btn-success">Làm bài</a>
             @endif
         </div>
 

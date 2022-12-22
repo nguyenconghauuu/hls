@@ -53,13 +53,13 @@
     .container {
         display: flex;
         width: 100%;
-        height: 1000px;
+        height: auto;
         margin-top: 20px;
     }
 
     .content {
         width: 100%;
-        height: 200px;
+        height: auto;
         padding: 20px;
         display: flex;
         flex-direction: column;

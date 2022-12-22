@@ -53,13 +53,13 @@
     .container {
         display: flex;
         width: 100%;
-        height: 1000px;
+        height: auto;
         margin-top: 20px;
     }
 
     .content {
         width: 90%;
-        height: 200px;
+        height: auto;
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -98,8 +98,8 @@
         <div class="content", style="padding-top:100px;text-align: center;color: white;" >
             <h5>Bài viết : Giới thiệu</h5>
             <p>Tổng cố câu hỏi : 20 câu</p>
-            <p>Thời gian làm bài : 30 phút</p>
-            <a href="{{ route('post.quiz', $id) }}" style="width:20%; margin-left: 430px;" type="button" class="btn btn-success">Làm bài</a>
+            <p>Thời gian làm bài : 20 phút</p>
+            <a href="{{ route('post.quiz', $id) }}" style="width:20%; margin-left: 430px;" type="button" class="btn btn-danger">Làm bài</a>
         </div>
 
     </div>

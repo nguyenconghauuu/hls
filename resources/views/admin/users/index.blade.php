@@ -35,7 +35,7 @@
                     <div class="" style="margin-top: 5px;">
                         <button type="submit" class="btn btn-xs btn-success"><i class="fa fa-search"></i> Tìm kiếm </button>
                         <a href="{{ route('admin.users.index') }}" class="btn btn-xs btn-danger"><i class="fa fa-refresh"></i> Làm mới </a>
-{{--                        <a href="{{ route('admin.users.add') }}" class="btn btn-xs btn-success"><i class="fa fa-plus"></i> Thêm mới </a>--}}
+                      
                     </div>
                 </form>
             </div>
@@ -51,11 +51,10 @@
                                 <th rowspan="2" class="hg"> Email </th>
                                 <th rowspan="2" class="hg"> Tuổi </th>
                                 <th rowspan="2" class="hg">Trang Thái </th>
-                                <th colspan="2" style="border:1px solid #f4f4f4;text-align: center;">Action</th>
                             </tr>
                             <tr >
-                                <th style="text-align: center;">Edit</th>
-                                <th style="text-align: center;">Delete</th>
+                                <th style="text-align: center;">Xem thông tin</th>
+                                <th style="text-align: center;">Xóa</th>
                             </tr>
                            @foreach($users as $item)
                                <tr>
@@ -74,7 +73,7 @@
                                         {!! renderBtnEdit(route('admin.users.edit',$item->id)) !!}
                                     </td>
                                     <td class="text-center">
-                                         {!! renderBtnDelete(route('admin.users.delete',$item->id)) !!}
+                                        {!! renderBtnDelete(route('admin.users.delete',$item->id)) !!}
                                     </td>
                                 </tr>
                            @endforeach
