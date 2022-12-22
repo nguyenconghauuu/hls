@@ -35,7 +35,7 @@
                     <div class="" style="margin-top: 5px;">
                         <button type="submit" class="btn btn-xs btn-success"><i class="fa fa-search"></i> Tìm kiếm </button>
                         <a href="{{ route('admin.users.index') }}" class="btn btn-xs btn-danger"><i class="fa fa-refresh"></i> Làm mới </a>
-                        <a href="{{ route('admin.users.add') }}" class="btn btn-xs btn-success"><i class="fa fa-plus"></i> Thêm mới </a>
+{{--                        <a href="{{ route('admin.users.add') }}" class="btn btn-xs btn-success"><i class="fa fa-plus"></i> Thêm mới </a>--}}
                     </div>
                 </form>
             </div>
