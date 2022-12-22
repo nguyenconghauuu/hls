@@ -104,7 +104,7 @@
     .title-footer { font-size: 20px;text-transform: uppercase;border-bottom: 2px solid #72c02c;padding-bottom: 15px;width: 90%}
 </style>
 <script>
-    var count = 3600;
+    var count = 1800;
     function countDown(){
         var timer = document.getElementById("timer");
         if(count > 0){

@@ -108,7 +108,7 @@
     }
 </style>
 <script>
-    var count = 3600;
+    var count = 1800;
     function countDown(){
         var timer = document.getElementById("timer");
         if(count > 0){

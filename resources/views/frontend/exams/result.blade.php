@@ -104,7 +104,7 @@
     .title-footer { font-size: 20px;text-transform: uppercase;border-bottom: 2px solid #72c02c;padding-bottom: 15px;width: 90%}
 </style>
 <script>
-    var count = 3600;
+    var count = 1800;
     function countDown(){
         var timer = document.getElementById("timer");
         if(count > 0){
@@ -155,9 +155,9 @@
                         <ul>
                             <li> Tổng Số Câu Hỏi : 20</li>
                             <li> Số câu chưa làm  : {{  $socauchulam }}</li>
-                            <li> Số câu trả lời : {{  40 - $socauchulam }}</li>
+                            <li> Số câu trả lời : {{  20 - $socauchulam }}</li>
                             <li> Số câu đúng : {{  $count }}</li>
-                            <li> Số câu TL sai  : {{  40 - $socauchulam - $count }}</li>
+                            <li> Số câu TL sai  : {{  20 - $socauchulam - $count }}</li>
                         </ul>
                     </div>
                     <div class="col-sm-6">

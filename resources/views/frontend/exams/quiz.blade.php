@@ -98,7 +98,7 @@
         <div class="content", style="padding-top:100px;text-align: center;color: white;" >
             <h5>Bài viết : Giới thiệu</h5>
             <p>Tổng cố câu hỏi : 20 câu</p>
-            <p>Thời gian làm bài : 20 phút</p>
+            <p>Thời gian làm bài : 30 phút</p>
             <a href="{{ route('post.quiz', $id) }}" style="width:20%; margin-left: 430px;" type="button" class="btn btn-success">Làm bài</a>
         </div>
 
