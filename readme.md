@@ -31,3 +31,4 @@ MAIL_USERNAME=lvtotnghiep123@gmail.com
 MAIL_PASSWORD=badkrizunikndeub
 MAIL_ENCRYPTION=tls
 MAIL_FROM_NAME="${APP_NAME}"
+# hls
